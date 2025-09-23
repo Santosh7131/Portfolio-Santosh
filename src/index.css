@@ -153,12 +153,29 @@
 
 /* Typewriter effect styling */
 .typewriter-wrapper {
-  color: white !important;
-  font-size: 4rem !important;
-  font-weight: bold !important;
+  color: white;
+  font-size: 4rem;
+  font-weight: 700;
 }
 
 .typewriter-cursor {
-  color: white !important;
-  font-size: 4rem !important;
+  color: white;
+  font-size: 4rem;
+}
+
+/* Subtitle (smaller) typewriter styling - ~2x smaller than main */
+.typewriter-sub-wrapper {
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.typewriter-sub-cursor {
+  color: white;
+  font-size: 2rem;
+}
+
+::view-transition-old(root), ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
 }

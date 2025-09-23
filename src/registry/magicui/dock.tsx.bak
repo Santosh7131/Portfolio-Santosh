@@ -1,0 +1,2 @@
+// Re-export the dock component from the components folder
+export { Dock, DockIcon } from '@/components/ui/dock';
