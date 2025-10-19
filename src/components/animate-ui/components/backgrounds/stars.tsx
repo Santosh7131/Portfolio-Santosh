@@ -10,7 +10,22 @@ import {
   type Transition,
 } from 'framer-motion';
 
-import { cn } from '@/lib/utils';
+// Simple utility function to combine class names
+function cn(...classes: (string | object | undefined)[]): string {
+  return classes
+    .map(cls => {
+      if (typeof cls === 'string') return cls;
+      if (typeof cls === 'object' && cls !== null) {
+        return Object.entries(cls)
+          .filter(([, value]) => value)
+          .map(([key]) => key)
+          .join(' ');
+      }
+      return '';
+    })
+    .filter(Boolean)
+    .join(' ');
+}
 
 type StarLayerProps = HTMLMotionProps<'div'> & {
   count: number;
