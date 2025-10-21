@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useTransform, useScroll } from 'framer-motion';
 import { StarsBackground } from './components/animate-ui/components/backgrounds/stars';
 import { PageTransition } from './components/PageTransition';
 import { StaticNav } from './components/StaticNav';
@@ -157,6 +157,8 @@ function App() {
       </motion.div>
     );
   };
+
+
 
   return (
     <div className="relative bg-black text-white overflow-x-hidden" style={{ scrollBehavior: 'smooth' }}>
@@ -436,7 +438,7 @@ function App() {
         </div>
       </motion.section>
 
-      {/* Skills Section - Simplified for now */}
+      {/* Skills Section - Clean Modern Design */}
       <motion.section 
         id="skills" 
         className="relative min-h-screen py-20 px-4 z-10"
@@ -446,9 +448,9 @@ function App() {
         exit="exit"
         viewport={{ once: true, margin: "-100px" }}
       >
-        <div className="container mx-auto max-w-6xl text-center">
+        <div className="container mx-auto max-w-6xl">
           <motion.h2 
-            className="text-4xl md:text-6xl font-bold mb-16"
+            className="text-4xl md:text-6xl font-bold text-center mb-16"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -459,30 +461,154 @@ function App() {
             </span>
           </motion.h2>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {[
-              "JavaScript", "HTML", "CSS", "Python",
-              "React", "Node.js", "TypeScript", "MongoDB"
-            ].map((skill, index) => (
-              <motion.div
-                key={skill}
-                className="relative bg-black/40 backdrop-blur-sm rounded-xl p-6 border border-gray-600 group overflow-hidden"
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-                whileHover={{ 
-                  scale: 1.05,
-                  borderColor: "rgba(255, 255, 255, 0.4)"
-                }}
-              >
+          {/* Clean Skills Grid */}
+          <div className="grid gap-12">
+            {/* Frontend */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">
+                <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                  Frontend Development
+                </span>
+              </h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                {[
+                  { name: "React", color: "#61DAFB", icon: "⚛️" },
+                  { name: "TypeScript", color: "#3178C6", icon: "TS" },
+                  { name: "JavaScript", color: "#F7DF1E", icon: "JS" },
+                  { name: "HTML5", color: "#E34F26", icon: "🌐" },
+                  { name: "CSS3", color: "#1572B6", icon: "🎨" },
+                  { name: "Tailwind CSS", color: "#06B6D4", icon: "💨" },
+                  { name: "Next.js", color: "#ffffff", icon: "▲" },
+                  { name: "Vue.js", color: "#4FC08D", icon: "V" }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    className="group relative bg-black/40 backdrop-blur-sm border border-gray-600 rounded-xl px-6 py-4 hover:border-blue-400/50 transition-all duration-300"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ 
+                      scale: 1.05, 
+                      y: -5,
+                      boxShadow: `0 10px 30px ${skill.color}20`
+                    }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">{skill.icon}</span>
+                      <span className="text-white font-semibold">{skill.name}</span>
+                    </div>
+                    <div 
+                      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                      style={{ backgroundColor: skill.color }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
 
-                
-                <h3 className="text-lg font-semibold text-white relative z-10 group-hover:text-gray-200 transition-colors duration-300">
-                  {skill}
-                </h3>
-              </motion.div>
-            ))}
+            {/* Backend */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">
+                <span className="bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent">
+                  Backend Development
+                </span>
+              </h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                {[
+                  { name: "Node.js", color: "#339933", icon: "📗" },
+                  { name: "Python", color: "#3776AB", icon: "🐍" },
+                  { name: "Express.js", color: "#68D391", icon: "⚡" },
+                  { name: "MongoDB", color: "#47A248", icon: "🍃" },
+                  { name: "PostgreSQL", color: "#336791", icon: "🐘" },
+                  { name: "MySQL", color: "#4479A1", icon: "🗄️" },
+                  { name: "Firebase", color: "#FFCA28", icon: "🔥" },
+                  { name: "GraphQL", color: "#E10098", icon: "◇" }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    className="group relative bg-black/40 backdrop-blur-sm border border-gray-600 rounded-xl px-6 py-4 hover:border-green-400/50 transition-all duration-300"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ 
+                      scale: 1.05, 
+                      y: -5,
+                      boxShadow: `0 10px 30px ${skill.color}20`
+                    }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">{skill.icon}</span>
+                      <span className="text-white font-semibold">{skill.name}</span>
+                    </div>
+                    <div 
+                      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                      style={{ backgroundColor: skill.color }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Tools & DevOps */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
+              <h3 className="text-2xl font-bold text-white mb-6 text-center">
+                <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+                  Tools & DevOps
+                </span>
+              </h3>
+              <div className="flex flex-wrap justify-center gap-4">
+                {[
+                  { name: "Git", color: "#F05032", icon: "🔗" },
+                  { name: "Docker", color: "#2496ED", icon: "🐳" },
+                  { name: "AWS", color: "#FF9900", icon: "☁️" },
+                  { name: "Vercel", color: "#ffffff", icon: "△" },
+                  { name: "Jenkins", color: "#D24939", icon: "🔧" },
+                  { name: "Webpack", color: "#8DD6F9", icon: "📦" },
+                  { name: "Jest", color: "#C21325", icon: "🧪" },
+                  { name: "Figma", color: "#F24E1E", icon: "🎨" }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    className="group relative bg-black/40 backdrop-blur-sm border border-gray-600 rounded-xl px-6 py-4 hover:border-purple-400/50 transition-all duration-300"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ 
+                      scale: 1.05, 
+                      y: -5,
+                      boxShadow: `0 10px 30px ${skill.color}20`
+                    }}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">{skill.icon}</span>
+                      <span className="text-white font-semibold">{skill.name}</span>
+                    </div>
+                    <div 
+                      className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                      style={{ backgroundColor: skill.color }}
+                    />
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
       </motion.section>
