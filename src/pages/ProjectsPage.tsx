@@ -10,7 +10,7 @@ const projects = [
     technologies: ["React", "Node.js", "MongoDB", "Algorithm Design"],
     category: "Algorithm & System Design",
     image: "🏗️",
-    color: "#3B82F6",
+    color: "rgba(59, 130, 246, 0.25)" as const,
     features: [
       "Zone-based floor allocation",
       "Real-time queue management",
@@ -27,7 +27,7 @@ const projects = [
     technologies: ["TypeScript", "React", "Algorithms", "Data Structures"],
     category: "Data Analysis & AI",
     image: "📊",
-    color: "#10B981",
+    color: "rgba(16, 185, 129, 0.25)" as const,
     features: [
       "Hash table optimization",
       "Quicksort ranking system",
@@ -44,7 +44,7 @@ const projects = [
     technologies: ["C", "Algorithms", "DAA", "Problem Solving"],
     category: "Algorithm Practice",
     image: "🧮",
-    color: "#8B5CF6",
+    color: "rgba(139, 92, 246, 0.25)" as const,
     features: [
       "Classic algorithm implementations",
       "Complexity analysis",
@@ -61,7 +61,7 @@ const projects = [
     technologies: ["React", "TypeScript", "Framer Motion", "Tailwind CSS"],
     category: "Web Development",
     image: "🌐",
-    color: "#F59E0B",
+    color: "rgba(245, 158, 11, 0.25)" as const,
     features: [
       "Responsive design",
       "Smooth animations",
@@ -94,12 +94,12 @@ export const ProjectsPage = () => {
           {projects.map((project, index) => (
             <SpotlightCard 
               key={project.id}
-              spotlightColor={`${project.color}40`}
+              spotlightColor={project.color}
             >
               <motion.div
                 className="cursor-target group relative bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-600 hover:border-opacity-50 transition-all duration-500"
                 style={{ 
-                  borderColor: `${project.color}20`
+                  borderColor: project.color
                 }}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
