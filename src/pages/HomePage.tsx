@@ -1,4 +1,7 @@
 import { motion } from 'framer-motion';
+import { useState, useEffect } from 'react';
+import { RippleButton, RippleButtonRipples } from '@/components/animate-ui/components/buttons/ripple';
+import SpotlightCard from '@/components/SpotlightCard';
 
 type PageChangeHandler = (page: 'home' | 'about' | 'skills' | 'projects') => void;
 
@@ -10,12 +13,36 @@ export const setPageChangeHandler = (handler: PageChangeHandler) => {
 };
 
 const stats = [
-  { number: "50+", label: "Projects Completed", icon: "🚀" },
+  { number: "5+", label: "Projects Built", icon: "🚀" },
   { number: "3+", label: "Years Experience", icon: "⭐" },
-  { number: "100%", label: "Client Satisfaction", icon: "🎯" }
+  { number: "Arch", label: "I use Arch btw", icon: "🐧" }
 ];
 
 export const HomePage = () => {
+  const [displayedText, setDisplayedText] = useState('');
+  const fullText = 'Coffee ? Terminal(Code) : Sleep()';
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [startTyping, setStartTyping] = useState(false);
+
+  // Delay before starting typewriter (wait for page to settle after loading)
+  useEffect(() => {
+    const delayTimer = setTimeout(() => {
+      setStartTyping(true);
+    }, 2500); // Start typing 2.5s after page loads (after 2s loading animation + 0.5s buffer)
+    return () => clearTimeout(delayTimer);
+  }, []);
+
+  // Typewriter effect
+  useEffect(() => {
+    if (startTyping && currentIndex < fullText.length) {
+      const timeout = setTimeout(() => {
+        setDisplayedText((prev) => prev + fullText[currentIndex]);
+        setCurrentIndex((prev) => prev + 1);
+      }, 100); // 100ms per character
+      return () => clearTimeout(timeout);
+    }
+  }, [currentIndex, startTyping]);
+
   // Function to navigate to projects page
   const navigateToProjects = () => {
     if (globalPageChangeHandler) {
@@ -64,21 +91,9 @@ export const HomePage = () => {
           className="relative"
         >
           <div className="relative">
-            <motion.h2 
-              className="text-xl md:text-3xl text-gray-300 font-light mb-6 relative z-10 font-mono inline-block"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 2, delay: 0.7 }}
-            >
-              Web Developer & Problem Solver
-            </motion.h2>
-            
-            {/* Blinking cursor */}
-            <motion.span
-              className="inline-block w-0.5 h-6 bg-gray-400 ml-1 relative -top-1"
-              animate={{ opacity: [1, 0, 1] }}
-              transition={{ duration: 1, repeat: Infinity, delay: 2.7 }}
-            />
+            <h2 className="text-xl md:text-3xl text-gray-300 font-light mb-6 relative z-10 font-mono inline-block">
+              {displayedText}
+            </h2>
           </div>
         </motion.div>
 
@@ -88,9 +103,7 @@ export const HomePage = () => {
           transition={{ duration: 0.8, delay: 0.8 }}
           className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed mb-8"
         >
-          Turning complex problems into elegant solutions. 
-          <br />
-          Creating meaningful digital experiences that make a difference.
+          I focus on writing clean, intentional code and paying attention to the details that matter. Most of my work revolves around the web, with a strong preference for working from the terminal.
         </motion.p>
         
         {/* Hero Stats */}
@@ -101,18 +114,21 @@ export const HomePage = () => {
           className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto mb-8"
         >
           {stats.map((stat, index) => (
-            <motion.div
+            <SpotlightCard 
               key={index}
-              className="bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 relative overflow-hidden group"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
-              whileHover={{ 
-                scale: 1.05,
-                y: -5,
-                boxShadow: "0 15px 30px rgba(0, 0, 0, 0.3)"
-              }}
+              spotlightColor="rgba(96, 165, 250, 0.2)"
             >
+              <motion.div
+                className="cursor-target bg-white/5 backdrop-blur-sm rounded-xl p-4 border border-white/10 relative overflow-hidden group"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 1.2 + index * 0.1 }}
+                whileHover={{ 
+                  scale: 1.05,
+                  y: -5,
+                  boxShadow: "0 15px 30px rgba(0, 0, 0, 0.3)"
+                }}
+              >
               {/* Animated background glow */}
               <motion.div 
                 className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-purple-600 opacity-0 group-hover:opacity-30 blur-xl"
@@ -157,6 +173,7 @@ export const HomePage = () => {
               {/* Border animation */}
               <div className="absolute inset-0 border border-white/0 group-hover:border-blue-400/30 rounded-xl transition-colors duration-300" />
             </motion.div>
+            </SpotlightCard>
           ))}
         </motion.div>
 
@@ -167,22 +184,70 @@ export const HomePage = () => {
           transition={{ duration: 0.8, delay: 1.4 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <motion.button
-            className="group relative px-8 py-3 text-white rounded-xl font-semibold text-md overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600"
-            whileHover={{ scale: 1.05, boxShadow: "0 15px 30px rgba(59, 130, 246, 0.3)" }}
-            whileTap={{ scale: 0.95 }}
-            onClick={navigateToProjects}
+          <RippleButton 
+            onClick={navigateToProjects} 
+            size="lg" 
+            className="cursor-target bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:bg-white/10 font-semibold rounded-xl px-8"
+            style={{
+              '--ripple-button-ripple-color': 'rgba(255, 255, 255, 0.6)',
+            } as React.CSSProperties}
           >
-            <span className="relative z-10">🌟 View My Work</span>
-          </motion.button>
+            🌟 View My Work
+            <RippleButtonRipples />
+          </RippleButton>
           
-          <motion.button
-            className="group relative px-8 py-3 text-white rounded-xl font-semibold text-md overflow-hidden bg-gradient-to-r from-blue-600 to-purple-600"
-            whileHover={{ scale: 1.05, boxShadow: "0 15px 30px rgba(59, 130, 246, 0.3)" }}
-            whileTap={{ scale: 0.95 }}
-          >
-            <span className="relative z-10">Resume</span>
-          </motion.button>
+          <div className="flex gap-2 items-center">
+            <RippleButton 
+              onClick={(e) => {
+                // Let ripple animation start before opening link
+                setTimeout(() => {
+                  window.open('https://drive.google.com/file/d/1-6QubvXApf7TcTM3S2n_W2VNmUWSk_vk/view?usp=sharing', '_blank');
+                }, 100);
+              }} 
+              size="lg" 
+              className="cursor-target bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:bg-white/10 font-semibold rounded-xl px-8"
+              style={{
+                '--ripple-button-ripple-color': 'rgba(255, 255, 255, 0.6)',
+              } as React.CSSProperties}
+            >
+              📄 Resume
+              <RippleButtonRipples />
+            </RippleButton>
+            
+            <RippleButton 
+              onClick={(e) => {
+                setTimeout(() => {
+                  // Trigger download
+                  const link = document.createElement('a');
+                  link.href = 'https://drive.google.com/uc?export=download&id=1-6QubvXApf7TcTM3S2n_W2VNmUWSk_vk';
+                  link.download = 'Santosh_Resume.pdf';
+                  document.body.appendChild(link);
+                  link.click();
+                  document.body.removeChild(link);
+                }, 100);
+              }} 
+              size="lg" 
+              className="cursor-target bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:bg-white/10 font-semibold rounded-xl px-4"
+              style={{
+                '--ripple-button-ripple-color': 'rgba(255, 255, 255, 0.6)',
+              } as React.CSSProperties}
+            >
+              <svg 
+                className="w-5 h-5" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" 
+                />
+              </svg>
+              <RippleButtonRipples />
+            </RippleButton>
+          </div>
         </motion.div>
       </div>
     </motion.div>
