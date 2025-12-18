@@ -14,6 +14,7 @@ export interface OrbitingCirclesProps
   iconSize?: number
   speed?: number
   orbitColor?: string
+  paused?: boolean
 }
 
 export function OrbitingCircles({
@@ -27,6 +28,7 @@ export function OrbitingCircles({
   iconSize = 30,
   speed = 1,
   orbitColor,
+  paused = false,
   ...props
 }: OrbitingCirclesProps) {
   const calculatedDuration = duration / speed
@@ -60,6 +62,7 @@ export function OrbitingCircles({
                 "--icon-size": `${iconSize}px`,
                 animationDelay: `${delay}s`,
                 animationDirection: reverse ? "reverse" : "normal",
+                animationPlayState: paused ? "paused" : "running",
               } as React.CSSProperties
             }
             className={cn(
