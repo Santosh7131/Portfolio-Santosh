@@ -1,0 +1,65 @@
+SKILLS ORGANIZATION FOR PORTFOLIO
+===================================
+
+Current Technologies organized by category:
+
+
+1. LANGUAGES
+------------
+- JavaScript
+- TypeScript
+- Python
+- Java
+- C++
+
+
+2. FRONTEND
+-----------
+- React
+
+
+3. BACKEND
+----------
+- Node.js
+- Express
+- FastAPI
+
+
+4. AI/ML
+--------
+- Groq API
+- Scikit-learn
+
+
+5. DATA PROCESSING
+------------------
+- Pandas
+
+
+6. DATABASES
+------------
+- MongoDB
+- PostgreSQL
+- SQL
+
+
+7. CLOUD & DEVOPS
+-----------------
+- Docker
+- Microsoft Azure
+- Vercel
+
+
+8. TOOLS
+--------
+- Git
+
+
+===================================
+INSTRUCTIONS:
+- Add any additional technologies under each category
+- Keep the format consistent
+- Add new lines for new technologies
+- You can add new categories if needed
+- Once done, let me know and I'll implement the button filtering system
+===================================

@@ -16,9 +16,29 @@ import {
   SiPandas,
   SiScikitlearn,
   SiPostgresql,
-  SiVercel
+  SiVercel,
+  SiC,
+  SiMysql,
+  SiHtml5,
+  SiCss3,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiFramer,
+  SiGreensock,
+  SiFlask,
+  SiHuggingface,
+  SiNumpy,
+  SiGithub,
+  SiRender,
+  SiRailway,
+  SiAutocad,
+  SiCanva,
+  SiFigma,
+  SiPostman
 } from 'react-icons/si';
 import { FaJava, FaDatabase, FaMicrosoft } from 'react-icons/fa';
+import { VscCode } from 'react-icons/vsc';
+import { TbMathFunction } from 'react-icons/tb';
 
 // Skill Icons Components with hover support
 const ReactIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
@@ -221,7 +241,7 @@ const GroqIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover
       isHovered ? 'scale-125 bg-purple-600/40 border-purple-600/60 shadow-lg shadow-purple-600/50' : ''
     }`}
   >
-    <span className="text-lg font-bold text-purple-300">Groq</span>
+    <span className="text-2xl font-bold text-purple-300">Groq</span>
   </div>
 );
 
@@ -246,6 +266,259 @@ const VercelIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
     }`}
   >
     <SiVercel className="text-2xl text-white" />
+  </div>
+);
+
+// NEW ICONS
+const CIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
+    }`}
+  >
+    <SiC className="text-2xl text-blue-400" />
+  </div>
+);
+
+const MySQLIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-600/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-blue-600/40 border-blue-600/60 shadow-lg shadow-blue-600/50' : ''
+    }`}
+  >
+    <SiMysql className="text-2xl text-blue-400" />
+  </div>
+);
+
+const HTMLIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-orange-500/40 border-orange-500/60 shadow-lg shadow-orange-500/50' : ''
+    }`}
+  >
+    <SiHtml5 className="text-2xl text-orange-500" />
+  </div>
+);
+
+const CSSIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
+    }`}
+  >
+    <SiCss3 className="text-2xl text-blue-400" />
+  </div>
+);
+
+const NextJSIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-black/40 backdrop-blur-sm border border-white/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-black/60 border-white/60 shadow-lg shadow-white/50' : ''
+    }`}
+  >
+    <SiNextdotjs className="text-2xl text-white" />
+  </div>
+);
+
+const TailwindIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-cyan-500/20 backdrop-blur-sm border border-cyan-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-cyan-500/40 border-cyan-500/60 shadow-lg shadow-cyan-500/50' : ''
+    }`}
+  >
+    <SiTailwindcss className="text-2xl text-cyan-400" />
+  </div>
+);
+
+const FramerIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-pink-500/20 backdrop-blur-sm border border-pink-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-pink-500/40 border-pink-500/60 shadow-lg shadow-pink-500/50' : ''
+    }`}
+  >
+    <SiFramer className="text-2xl text-pink-400" />
+  </div>
+);
+
+const GSAPIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-green-500/40 border-green-500/60 shadow-lg shadow-green-500/50' : ''
+    }`}
+  >
+    <SiGreensock className="text-2xl text-green-400" />
+  </div>
+);
+
+const FlaskIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-gray-400/20 backdrop-blur-sm border border-gray-400/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-gray-400/40 border-gray-400/60 shadow-lg shadow-gray-400/50' : ''
+    }`}
+  >
+    <SiFlask className="text-2xl text-white" />
+  </div>
+);
+
+const HuggingFaceIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-yellow-500/40 border-yellow-500/60 shadow-lg shadow-yellow-500/50' : ''
+    }`}
+  >
+    <SiHuggingface className="text-2xl text-yellow-400" />
+  </div>
+);
+
+const NumpyIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
+    }`}
+  >
+    <SiNumpy className="text-2xl text-blue-400" />
+  </div>
+);
+
+const MatplotlibIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-indigo-500/20 backdrop-blur-sm border border-indigo-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-indigo-500/40 border-indigo-500/60 shadow-lg shadow-indigo-500/50' : ''
+    }`}
+  >
+    <TbMathFunction className="text-2xl text-indigo-400" />
+  </div>
+);
+
+const GithubIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-gray-500/20 backdrop-blur-sm border border-gray-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-gray-500/40 border-gray-500/60 shadow-lg shadow-gray-500/50' : ''
+    }`}
+  >
+    <SiGithub className="text-2xl text-white" />
+  </div>
+);
+
+const RenderIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-purple-500/40 border-purple-500/60 shadow-lg shadow-purple-500/50' : ''
+    }`}
+  >
+    <SiRender className="text-2xl text-purple-400" />
+  </div>
+);
+
+const RailwayIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-black/40 backdrop-blur-sm border border-white/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-black/60 border-white/60 shadow-lg shadow-white/50' : ''
+    }`}
+  >
+    <SiRailway className="text-2xl text-white" />
+  </div>
+);
+
+const CICDIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-green-500/40 border-green-500/60 shadow-lg shadow-green-500/50' : ''
+    }`}
+  >
+    <span className="text-sm font-bold text-green-400">CI/CD</span>
+  </div>
+);
+
+const VSCodeIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
+    }`}
+  >
+    <VscCode className="text-2xl text-blue-400" />
+  </div>
+);
+
+const AutoCADIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-red-500/40 border-red-500/60 shadow-lg shadow-red-500/50' : ''
+    }`}
+  >
+    <SiAutocad className="text-2xl text-red-400" />
+  </div>
+);
+
+const CanvaIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-cyan-500/20 backdrop-blur-sm border border-cyan-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-cyan-500/40 border-cyan-500/60 shadow-lg shadow-cyan-500/50' : ''
+    }`}
+  >
+    <SiCanva className="text-2xl text-cyan-400" />
+  </div>
+);
+
+const FigmaIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-pink-500/20 backdrop-blur-sm border border-pink-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-pink-500/40 border-pink-500/60 shadow-lg shadow-pink-500/50' : ''
+    }`}
+  >
+    <SiFigma className="text-2xl text-pink-400" />
+  </div>
+);
+
+const PostmanIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: () => void; onLeave: () => void }) => (
+  <div 
+    onMouseEnter={onHover}
+    onMouseLeave={onLeave}
+    className={`flex items-center justify-center w-full h-full rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 cursor-pointer ${
+      isHovered ? 'scale-125 bg-orange-500/40 border-orange-500/60 shadow-lg shadow-orange-500/50' : ''
+    }`}
+  >
+    <SiPostman className="text-2xl text-orange-400" />
   </div>
 );
 
@@ -447,6 +720,132 @@ const technologyDescriptions: Record<string, { name: string; description: string
     category: "Deployment Platform",
     useCases: ["Frontend Hosting", "Serverless Functions", "Edge Network", "CI/CD Integration"]
   },
+  c: {
+    name: "C",
+    description: "A powerful general-purpose language foundational to modern computing and system programming.",
+    category: "Programming Language",
+    useCases: ["System Programming", "Operating Systems", "Embedded Systems", "Performance Critical Code"]
+  },
+  mysql: {
+    name: "MySQL",
+    description: "An open-source relational database management system widely used for web applications.",
+    category: "Database",
+    useCases: ["Web Applications", "Data Storage", "Relational Data", "ACID Transactions"]
+  },
+  html: {
+    name: "HTML5",
+    description: "The standard markup language for creating web pages and web applications.",
+    category: "Markup Language",
+    useCases: ["Web Structure", "Semantic Markup", "Content Organization", "Web Standards"]
+  },
+  css: {
+    name: "CSS3",
+    description: "Style sheet language used for describing the presentation of web documents.",
+    category: "Style Sheet",
+    useCases: ["Web Styling", "Responsive Design", "Animations", "Layout Management"]
+  },
+  nextjs: {
+    name: "Next.js",
+    description: "A React framework for building full-stack web applications with server-side rendering.",
+    category: "Frontend Framework",
+    useCases: ["SSR Applications", "Static Sites", "Full-stack Apps", "SEO Optimization"]
+  },
+  tailwind: {
+    name: "Tailwind CSS",
+    description: "A utility-first CSS framework for rapidly building custom user interfaces.",
+    category: "CSS Framework",
+    useCases: ["Rapid Prototyping", "Utility Classes", "Responsive Design", "Custom Designs"]
+  },
+  framer: {
+    name: "Framer Motion",
+    description: "A production-ready motion library for React with simple yet powerful animations.",
+    category: "Animation Library",
+    useCases: ["Page Transitions", "UI Animations", "Gesture Interactions", "Complex Animations"]
+  },
+  gsap: {
+    name: "GSAP",
+    description: "A professional-grade JavaScript animation library for creating high-performance animations.",
+    category: "Animation Library",
+    useCases: ["Complex Animations", "Timeline Control", "SVG Animation", "Performance Critical"]
+  },
+  flask: {
+    name: "Flask",
+    description: "A lightweight WSGI web application framework for Python with minimal setup.",
+    category: "Backend Framework",
+    useCases: ["Microservices", "REST APIs", "Small Applications", "Prototyping"]
+  },
+  huggingface: {
+    name: "Hugging Face",
+    description: "A platform and library for state-of-the-art natural language processing and machine learning.",
+    category: "AI/ML Platform",
+    useCases: ["NLP Models", "Transformers", "Model Hub", "Text Generation"]
+  },
+  numpy: {
+    name: "NumPy",
+    description: "The fundamental package for scientific computing with Python, providing array operations.",
+    category: "Data Library",
+    useCases: ["Numerical Computing", "Array Operations", "Scientific Computing", "Linear Algebra"]
+  },
+  matplotlib: {
+    name: "Matplotlib",
+    description: "A comprehensive library for creating static, animated, and interactive visualizations in Python.",
+    category: "Visualization Library",
+    useCases: ["Data Visualization", "Plotting", "Charts & Graphs", "Scientific Figures"]
+  },
+  github: {
+    name: "GitHub",
+    description: "A web-based platform for version control and collaboration using Git.",
+    category: "Development Platform",
+    useCases: ["Code Hosting", "Collaboration", "CI/CD", "Open Source"]
+  },
+  render: {
+    name: "Render",
+    description: "A unified cloud platform to build and run all your apps and websites with free SSL and CDN.",
+    category: "Cloud Platform",
+    useCases: ["Web Hosting", "Backend Deployment", "Static Sites", "Database Hosting"]
+  },
+  railway: {
+    name: "Railway",
+    description: "A deployment platform where you can provision infrastructure and deploy instantly.",
+    category: "Deployment Platform",
+    useCases: ["Instant Deployment", "Database Hosting", "Backend Services", "Environment Variables"]
+  },
+  cicd: {
+    name: "CI/CD",
+    description: "Continuous Integration and Continuous Deployment practices for automated software delivery.",
+    category: "DevOps Practice",
+    useCases: ["Automated Testing", "Deployment Automation", "Quality Assurance", "Release Management"]
+  },
+  vscode: {
+    name: "VS Code",
+    description: "A lightweight but powerful source code editor with extensive extension support.",
+    category: "IDE/Editor",
+    useCases: ["Code Editing", "Debugging", "Extensions", "Git Integration"]
+  },
+  autocad: {
+    name: "AutoCAD",
+    description: "A commercial computer-aided design and drafting software application.",
+    category: "Design Tool",
+    useCases: ["2D Drafting", "3D Modeling", "Engineering Design", "Architecture"]
+  },
+  canva: {
+    name: "Canva",
+    description: "A graphic design platform for creating social media graphics, presentations, and visual content.",
+    category: "Design Tool",
+    useCases: ["Graphic Design", "Social Media", "Presentations", "Marketing Materials"]
+  },
+  figma: {
+    name: "Figma",
+    description: "A collaborative interface design tool for creating user interfaces and prototypes.",
+    category: "Design Tool",
+    useCases: ["UI Design", "Prototyping", "Collaboration", "Design Systems"]
+  },
+  postman: {
+    name: "Postman",
+    description: "An API platform for building, testing, and documenting APIs efficiently.",
+    category: "API Tool",
+    useCases: ["API Testing", "Request Building", "Documentation", "API Development"]
+  },
 };
 
 export const SkillsPage = () => {
@@ -468,45 +867,75 @@ export const SkillsPage = () => {
         {/* Main Layout */}
         <div className="flex flex-col lg:flex-row gap-6">
           
-          {/* Left: Large Bento Card with Orbiting Circles (40% width) */}
-          <div className="lg:w-[40%] w-full">
+          {/* Left: Large Bento Card with Orbiting Circles (45% width) */}
+          <div className="lg:w-[45%] w-full">
             <div className="relative flex h-[700px] w-full items-center justify-center overflow-hidden rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 backdrop-blur-sm">
               
               {/* Outer orbit - Languages (Clockwise) */}
-              <OrbitingCircles iconSize={50} radius={200} duration={30} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
+              {/* Orbit 1 - Outermost (Clockwise) - 12 icons */}
+              <OrbitingCircles iconSize={46} radius={320} duration={40} delay={0} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
                 <ReactIcon isHovered={hoveredIcon === 'react'} onHover={() => setHoveredIcon('react')} onLeave={() => setHoveredIcon(null)} />
                 <TypeScriptIcon isHovered={hoveredIcon === 'typescript'} onHover={() => setHoveredIcon('typescript')} onLeave={() => setHoveredIcon(null)} />
                 <JavaScriptIcon isHovered={hoveredIcon === 'javascript'} onHover={() => setHoveredIcon('javascript')} onLeave={() => setHoveredIcon(null)} />
                 <PythonIcon isHovered={hoveredIcon === 'python'} onHover={() => setHoveredIcon('python')} onLeave={() => setHoveredIcon(null)} />
                 <JavaIcon isHovered={hoveredIcon === 'java'} onHover={() => setHoveredIcon('java')} onLeave={() => setHoveredIcon(null)} />
                 <CppIcon isHovered={hoveredIcon === 'cpp'} onHover={() => setHoveredIcon('cpp')} onLeave={() => setHoveredIcon(null)} />
+                <CIcon isHovered={hoveredIcon === 'c'} onHover={() => setHoveredIcon('c')} onLeave={() => setHoveredIcon(null)} />
+                <HTMLIcon isHovered={hoveredIcon === 'html'} onHover={() => setHoveredIcon('html')} onLeave={() => setHoveredIcon(null)} />
+                <CSSIcon isHovered={hoveredIcon === 'css'} onHover={() => setHoveredIcon('css')} onLeave={() => setHoveredIcon(null)} />
+                <NextJSIcon isHovered={hoveredIcon === 'nextjs'} onHover={() => setHoveredIcon('nextjs')} onLeave={() => setHoveredIcon(null)} />
+                <TailwindIcon isHovered={hoveredIcon === 'tailwind'} onHover={() => setHoveredIcon('tailwind')} onLeave={() => setHoveredIcon(null)} />
+                <FramerIcon isHovered={hoveredIcon === 'framer'} onHover={() => setHoveredIcon('framer')} onLeave={() => setHoveredIcon(null)} />
               </OrbitingCircles>
 
-              {/* Middle orbit - Frameworks & DBs (Counter-clockwise) */}
-              <OrbitingCircles iconSize={45} radius={130} duration={25} reverse={true} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
+              {/* Orbit 2 (Counter-clockwise) - 10 icons */}
+              <OrbitingCircles iconSize={44} radius={256} duration={36} delay={0} reverse={true} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
+                <GSAPIcon isHovered={hoveredIcon === 'gsap'} onHover={() => setHoveredIcon('gsap')} onLeave={() => setHoveredIcon(null)} />
                 <NodeIcon isHovered={hoveredIcon === 'node'} onHover={() => setHoveredIcon('node')} onLeave={() => setHoveredIcon(null)} />
                 <ExpressIcon isHovered={hoveredIcon === 'express'} onHover={() => setHoveredIcon('express')} onLeave={() => setHoveredIcon(null)} />
+                <FlaskIcon isHovered={hoveredIcon === 'flask'} onHover={() => setHoveredIcon('flask')} onLeave={() => setHoveredIcon(null)} />
                 <FastAPIIcon isHovered={hoveredIcon === 'fastapi'} onHover={() => setHoveredIcon('fastapi')} onLeave={() => setHoveredIcon(null)} />
                 <MongoDBIcon isHovered={hoveredIcon === 'mongodb'} onHover={() => setHoveredIcon('mongodb')} onLeave={() => setHoveredIcon(null)} />
                 <PostgreSQLIcon isHovered={hoveredIcon === 'postgresql'} onHover={() => setHoveredIcon('postgresql')} onLeave={() => setHoveredIcon(null)} />
                 <SQLIcon isHovered={hoveredIcon === 'sql'} onHover={() => setHoveredIcon('sql')} onLeave={() => setHoveredIcon(null)} />
+                <MySQLIcon isHovered={hoveredIcon === 'mysql'} onHover={() => setHoveredIcon('mysql')} onLeave={() => setHoveredIcon(null)} />
+                <HuggingFaceIcon isHovered={hoveredIcon === 'huggingface'} onHover={() => setHoveredIcon('huggingface')} onLeave={() => setHoveredIcon(null)} />
               </OrbitingCircles>
 
-              {/* Inner orbit - Tools (Clockwise) */}
-              <OrbitingCircles iconSize={40} radius={70} duration={20} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
-                <GitIcon isHovered={hoveredIcon === 'git'} onHover={() => setHoveredIcon('git')} onLeave={() => setHoveredIcon(null)} />
-                <DockerIcon isHovered={hoveredIcon === 'docker'} onHover={() => setHoveredIcon('docker')} onLeave={() => setHoveredIcon(null)} />
-                <AzureIcon isHovered={hoveredIcon === 'azure'} onHover={() => setHoveredIcon('azure')} onLeave={() => setHoveredIcon(null)} />
-                <GroqIcon isHovered={hoveredIcon === 'groq'} onHover={() => setHoveredIcon('groq')} onLeave={() => setHoveredIcon(null)} />
+              {/* Orbit 3 (Clockwise) - 8 icons */}
+              <OrbitingCircles iconSize={42} radius={192} duration={32} delay={0} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
+                <NumpyIcon isHovered={hoveredIcon === 'numpy'} onHover={() => setHoveredIcon('numpy')} onLeave={() => setHoveredIcon(null)} />
+                <MatplotlibIcon isHovered={hoveredIcon === 'matplotlib'} onHover={() => setHoveredIcon('matplotlib')} onLeave={() => setHoveredIcon(null)} />
                 <PandasIcon isHovered={hoveredIcon === 'pandas'} onHover={() => setHoveredIcon('pandas')} onLeave={() => setHoveredIcon(null)} />
                 <ScikitIcon isHovered={hoveredIcon === 'scikit'} onHover={() => setHoveredIcon('scikit')} onLeave={() => setHoveredIcon(null)} />
+                <GitIcon isHovered={hoveredIcon === 'git'} onHover={() => setHoveredIcon('git')} onLeave={() => setHoveredIcon(null)} />
+                <GithubIcon isHovered={hoveredIcon === 'github'} onHover={() => setHoveredIcon('github')} onLeave={() => setHoveredIcon(null)} />
+                <DockerIcon isHovered={hoveredIcon === 'docker'} onHover={() => setHoveredIcon('docker')} onLeave={() => setHoveredIcon(null)} />
+                <AzureIcon isHovered={hoveredIcon === 'azure'} onHover={() => setHoveredIcon('azure')} onLeave={() => setHoveredIcon(null)} />
+              </OrbitingCircles>
+
+              {/* Orbit 4 (Counter-clockwise) - 6 icons */}
+              <OrbitingCircles iconSize={40} radius={128} duration={28} reverse={true} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
                 <VercelIcon isHovered={hoveredIcon === 'vercel'} onHover={() => setHoveredIcon('vercel')} onLeave={() => setHoveredIcon(null)} />
+                <RenderIcon isHovered={hoveredIcon === 'render'} onHover={() => setHoveredIcon('render')} onLeave={() => setHoveredIcon(null)} />
+                <RailwayIcon isHovered={hoveredIcon === 'railway'} onHover={() => setHoveredIcon('railway')} onLeave={() => setHoveredIcon(null)} />
+                <CICDIcon isHovered={hoveredIcon === 'cicd'} onHover={() => setHoveredIcon('cicd')} onLeave={() => setHoveredIcon(null)} />
+                <GroqIcon isHovered={hoveredIcon === 'groq'} onHover={() => setHoveredIcon('groq')} onLeave={() => setHoveredIcon(null)} />
+                <VSCodeIcon isHovered={hoveredIcon === 'vscode'} onHover={() => setHoveredIcon('vscode')} onLeave={() => setHoveredIcon(null)} />
+              </OrbitingCircles>
+
+              {/* Orbit 5 - Innermost (Clockwise) - 4 icons */}
+              <OrbitingCircles iconSize={38} radius={64} duration={24} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
+                <AutoCADIcon isHovered={hoveredIcon === 'autocad'} onHover={() => setHoveredIcon('autocad')} onLeave={() => setHoveredIcon(null)} />
+                <CanvaIcon isHovered={hoveredIcon === 'canva'} onHover={() => setHoveredIcon('canva')} onLeave={() => setHoveredIcon(null)} />
+                <FigmaIcon isHovered={hoveredIcon === 'figma'} onHover={() => setHoveredIcon('figma')} onLeave={() => setHoveredIcon(null)} />
+                <PostmanIcon isHovered={hoveredIcon === 'postman'} onHover={() => setHoveredIcon('postman')} onLeave={() => setHoveredIcon(null)} />
               </OrbitingCircles>
             </div>
           </div>
 
-          {/* Right: Content Area (60% width) */}
-          <div className="lg:w-[60%] w-full flex flex-col gap-6">
+          {/* Right: Content Area (55% width) */}
+          <div className="lg:w-[55%] w-full flex flex-col gap-6">
             
             {/* Top: Buttons Section (20% height) */}
             <div className="h-[140px] rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 backdrop-blur-sm p-6">

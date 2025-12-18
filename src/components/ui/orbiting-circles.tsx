@@ -51,7 +51,9 @@ export function OrbitingCircles({
         </svg>
       )}
       {React.Children.map(children, (child, index) => {
-        const angle = (360 / React.Children.count(children)) * index
+        const totalChildren = React.Children.count(children)
+        const angleStep = 360 / totalChildren
+        const angle = angleStep * index
         return (
           <div
             style={
