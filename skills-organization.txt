@@ -11,11 +11,20 @@ Current Technologies organized by category:
 - Python
 - Java
 - C++
+C
+MySQL
 
 
 2. FRONTEND
 -----------
+HTML
+CSS
 - React
+Nextjs
+tailwind
+Framer
+Gsap
+
 
 
 3. BACKEND
@@ -23,17 +32,21 @@ Current Technologies organized by category:
 - Node.js
 - Express
 - FastAPI
+- Flask
 
 
 4. AI/ML
 --------
-- Groq API
+- Hugging Face
 - Scikit-learn
 
 
 5. DATA PROCESSING
 ------------------
 - Pandas
+- Numpy 
+- Matplotlib 
+- 
 
 
 6. DATABASES
@@ -48,18 +61,19 @@ Current Technologies organized by category:
 - Docker
 - Microsoft Azure
 - Vercel
-
+Git
+guthub
+Vercel
+Render
+Railway
+CI/CD
 
 8. TOOLS
 --------
-- Git
+- Vs Code
+AutoCAD
+Canva
+Figma
+Postman
 
 
-===================================
-INSTRUCTIONS:
-- Add any additional technologies under each category
-- Keep the format consistent
-- Add new lines for new technologies
-- You can add new categories if needed
-- Once done, let me know and I'll implement the button filtering system
-===================================

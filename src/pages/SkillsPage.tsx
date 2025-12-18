@@ -1,5 +1,6 @@
 import { OrbitingCircles } from '@/components/ui/orbiting-circles';
 import { BentoCard, BentoGrid } from '@/components/ui/bento-grid';
+import { Button } from '@/components/animate-ui/components/buttons/button';
 import { useState } from 'react';
 import { 
   SiReact, 
@@ -45,7 +46,7 @@ const ReactIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHove
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
     }`}
   >
@@ -57,7 +58,7 @@ const TypeScriptIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; o
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-600/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-600/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-600/40 border-blue-600/60 shadow-lg shadow-blue-600/50' : ''
     }`}
   >
@@ -69,7 +70,7 @@ const JavaScriptIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; o
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-yellow-500/40 border-yellow-500/60 shadow-lg shadow-yellow-500/50' : ''
     }`}
   >
@@ -81,7 +82,7 @@ const NodeIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-green-500/40 border-green-500/60 shadow-lg shadow-green-500/50' : ''
     }`}
   >
@@ -93,7 +94,7 @@ const PythonIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-400/20 backdrop-blur-sm border border-blue-400/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-400/20 backdrop-blur-sm border border-blue-400/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-400/40 border-blue-400/60 shadow-lg shadow-blue-400/50' : ''
     }`}
   >
@@ -105,7 +106,7 @@ const MongoDBIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHo
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-green-600/20 backdrop-blur-sm border border-green-600/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-green-600/20 backdrop-blur-sm border border-green-600/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-green-600/40 border-green-600/60 shadow-lg shadow-green-600/50' : ''
     }`}
   >
@@ -117,7 +118,7 @@ const GitIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover:
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-orange-500/40 border-orange-500/60 shadow-lg shadow-orange-500/50' : ''
     }`}
   >
@@ -129,7 +130,7 @@ const DockerIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-400/20 backdrop-blur-sm border border-blue-400/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-400/20 backdrop-blur-sm border border-blue-400/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-400/40 border-blue-400/60 shadow-lg shadow-blue-400/50' : ''
     }`}
   >
@@ -141,7 +142,7 @@ const JavaIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-red-500/40 border-red-500/60 shadow-lg shadow-red-500/50' : ''
     }`}
   >
@@ -153,7 +154,7 @@ const CppIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover:
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-600/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-600/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-600/40 border-blue-600/60 shadow-lg shadow-blue-600/50' : ''
     }`}
   >
@@ -165,7 +166,7 @@ const SQLIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover:
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-orange-400/20 backdrop-blur-sm border border-orange-400/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-orange-400/20 backdrop-blur-sm border border-orange-400/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-orange-400/40 border-orange-400/60 shadow-lg shadow-orange-400/50' : ''
     }`}
   >
@@ -177,7 +178,7 @@ const ExpressIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHo
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-gray-400/20 backdrop-blur-sm border border-gray-400/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-gray-400/20 backdrop-blur-sm border border-gray-400/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-gray-400/40 border-gray-400/60 shadow-lg shadow-gray-400/50' : ''
     }`}
   >
@@ -189,7 +190,7 @@ const FastAPIIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHo
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-teal-500/20 backdrop-blur-sm border border-teal-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-teal-500/20 backdrop-blur-sm border border-teal-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-teal-500/40 border-teal-500/60 shadow-lg shadow-teal-500/50' : ''
     }`}
   >
@@ -201,7 +202,7 @@ const PandasIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-purple-500/40 border-purple-500/60 shadow-lg shadow-purple-500/50' : ''
     }`}
   >
@@ -213,7 +214,7 @@ const ScikitIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-orange-500/40 border-orange-500/60 shadow-lg shadow-orange-500/50' : ''
     }`}
   >
@@ -225,7 +226,7 @@ const AzureIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHove
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
     }`}
   >
@@ -237,7 +238,7 @@ const GroqIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-purple-600/20 backdrop-blur-sm border border-purple-600/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-purple-600/20 backdrop-blur-sm border border-purple-600/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-purple-600/40 border-purple-600/60 shadow-lg shadow-purple-600/50' : ''
     }`}
   >
@@ -249,7 +250,7 @@ const PostgreSQLIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; o
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-400/20 backdrop-blur-sm border border-blue-400/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-400/20 backdrop-blur-sm border border-blue-400/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-400/40 border-blue-400/60 shadow-lg shadow-blue-400/50' : ''
     }`}
   >
@@ -261,7 +262,7 @@ const VercelIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-black/40 backdrop-blur-sm border border-white/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-black/40 backdrop-blur-sm border border-white/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-black/60 border-white/60 shadow-lg shadow-white/50' : ''
     }`}
   >
@@ -274,7 +275,7 @@ const CIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover: (
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
     }`}
   >
@@ -286,7 +287,7 @@ const MySQLIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHove
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-600/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-600/20 backdrop-blur-sm border border-blue-600/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-600/40 border-blue-600/60 shadow-lg shadow-blue-600/50' : ''
     }`}
   >
@@ -298,7 +299,7 @@ const HTMLIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-orange-500/40 border-orange-500/60 shadow-lg shadow-orange-500/50' : ''
     }`}
   >
@@ -310,7 +311,7 @@ const CSSIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover:
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
     }`}
   >
@@ -322,7 +323,7 @@ const NextJSIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-black/40 backdrop-blur-sm border border-white/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-black/40 backdrop-blur-sm border border-white/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-black/60 border-white/60 shadow-lg shadow-white/50' : ''
     }`}
   >
@@ -334,7 +335,7 @@ const TailwindIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onH
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-cyan-500/20 backdrop-blur-sm border border-cyan-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-cyan-500/20 backdrop-blur-sm border border-cyan-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-cyan-500/40 border-cyan-500/60 shadow-lg shadow-cyan-500/50' : ''
     }`}
   >
@@ -346,7 +347,7 @@ const FramerIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-pink-500/20 backdrop-blur-sm border border-pink-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-pink-500/20 backdrop-blur-sm border border-pink-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-pink-500/40 border-pink-500/60 shadow-lg shadow-pink-500/50' : ''
     }`}
   >
@@ -358,7 +359,7 @@ const GSAPIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-green-500/40 border-green-500/60 shadow-lg shadow-green-500/50' : ''
     }`}
   >
@@ -370,7 +371,7 @@ const FlaskIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHove
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-gray-400/20 backdrop-blur-sm border border-gray-400/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-gray-400/20 backdrop-blur-sm border border-gray-400/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-gray-400/40 border-gray-400/60 shadow-lg shadow-gray-400/50' : ''
     }`}
   >
@@ -382,7 +383,7 @@ const HuggingFaceIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; 
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-yellow-500/20 backdrop-blur-sm border border-yellow-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-yellow-500/40 border-yellow-500/60 shadow-lg shadow-yellow-500/50' : ''
     }`}
   >
@@ -394,7 +395,7 @@ const NumpyIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHove
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
     }`}
   >
@@ -406,7 +407,7 @@ const MatplotlibIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; o
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-indigo-500/20 backdrop-blur-sm border border-indigo-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-indigo-500/20 backdrop-blur-sm border border-indigo-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-indigo-500/40 border-indigo-500/60 shadow-lg shadow-indigo-500/50' : ''
     }`}
   >
@@ -418,7 +419,7 @@ const GithubIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-gray-500/20 backdrop-blur-sm border border-gray-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-gray-500/20 backdrop-blur-sm border border-gray-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-gray-500/40 border-gray-500/60 shadow-lg shadow-gray-500/50' : ''
     }`}
   >
@@ -430,7 +431,7 @@ const RenderIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-purple-500/20 backdrop-blur-sm border border-purple-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-purple-500/40 border-purple-500/60 shadow-lg shadow-purple-500/50' : ''
     }`}
   >
@@ -442,7 +443,7 @@ const RailwayIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHo
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-black/40 backdrop-blur-sm border border-white/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-black/40 backdrop-blur-sm border border-white/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-black/60 border-white/60 shadow-lg shadow-white/50' : ''
     }`}
   >
@@ -454,7 +455,7 @@ const CICDIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-green-500/20 backdrop-blur-sm border border-green-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-green-500/40 border-green-500/60 shadow-lg shadow-green-500/50' : ''
     }`}
   >
@@ -466,7 +467,7 @@ const VSCodeIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-blue-500/20 backdrop-blur-sm border border-blue-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
     }`}
   >
@@ -478,7 +479,7 @@ const AutoCADIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHo
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-red-500/20 backdrop-blur-sm border border-red-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-red-500/40 border-red-500/60 shadow-lg shadow-red-500/50' : ''
     }`}
   >
@@ -490,7 +491,7 @@ const CanvaIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHove
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-cyan-500/20 backdrop-blur-sm border border-cyan-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-cyan-500/20 backdrop-blur-sm border border-cyan-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-cyan-500/40 border-cyan-500/60 shadow-lg shadow-cyan-500/50' : ''
     }`}
   >
@@ -502,7 +503,7 @@ const FigmaIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHove
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-pink-500/20 backdrop-blur-sm border border-pink-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-pink-500/20 backdrop-blur-sm border border-pink-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-pink-500/40 border-pink-500/60 shadow-lg shadow-pink-500/50' : ''
     }`}
   >
@@ -514,7 +515,7 @@ const PostmanIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHo
   <div 
     onMouseEnter={onHover}
     onMouseLeave={onLeave}
-    className={`flex items-center justify-center w-full h-full rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 cursor-pointer ${
+    className={`cursor-target flex items-center justify-center w-full h-full rounded-full bg-orange-500/20 backdrop-blur-sm border border-orange-500/30 transition-all duration-300 cursor-pointer ${
       isHovered ? 'scale-125 bg-orange-500/40 border-orange-500/60 shadow-lg shadow-orange-500/50' : ''
     }`}
   >
@@ -940,24 +941,24 @@ export const SkillsPage = () => {
             {/* Top: Buttons Section (20% height) */}
             <div className="h-[140px] rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 backdrop-blur-sm p-6">
               <div className="grid grid-cols-3 gap-3 h-full">
-                <button className="rounded-lg bg-blue-500/20 border border-blue-500/30 hover:bg-blue-500/30 transition-colors text-white font-medium">
+                <Button variant="default" className="h-full">
                   Button 1
-                </button>
-                <button className="rounded-lg bg-purple-500/20 border border-purple-500/30 hover:bg-purple-500/30 transition-colors text-white font-medium">
+                </Button>
+                <Button variant="default" className="h-full">
                   Button 2
-                </button>
-                <button className="rounded-lg bg-green-500/20 border border-green-500/30 hover:bg-green-500/30 transition-colors text-white font-medium">
+                </Button>
+                <Button variant="default" className="h-full">
                   Button 3
-                </button>
-                <button className="rounded-lg bg-orange-500/20 border border-orange-500/30 hover:bg-orange-500/30 transition-colors text-white font-medium">
+                </Button>
+                <Button variant="default" className="h-full">
                   Button 4
-                </button>
-                <button className="rounded-lg bg-pink-500/20 border border-pink-500/30 hover:bg-pink-500/30 transition-colors text-white font-medium">
+                </Button>
+                <Button variant="default" className="h-full">
                   Button 5
-                </button>
-                <button className="rounded-lg bg-teal-500/20 border border-teal-500/30 hover:bg-teal-500/30 transition-colors text-white font-medium">
+                </Button>
+                <Button variant="default" className="h-full">
                   Button 6
-                </button>
+                </Button>
               </div>
             </div>
 
