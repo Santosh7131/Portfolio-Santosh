@@ -230,7 +230,7 @@ const AzureIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHove
       isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
     }`}
   >
-    <FaMicrosoft className="text-2xl text-blue-400" />
+    <img src="/azure-icon.png" alt="Azure" className="w-6 h-6 object-contain" />
   </div>
 );
 
@@ -242,7 +242,7 @@ const GroqIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover
       isHovered ? 'scale-125 bg-purple-600/40 border-purple-600/60 shadow-lg shadow-purple-600/50' : ''
     }`}
   >
-    <span className="text-2xl font-bold text-purple-300">Groq</span>
+    <img src="/groq-icon.png" alt="Groq" className="w-6 h-6 object-contain" />
   </div>
 );
 
@@ -291,7 +291,7 @@ const MySQLIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHove
       isHovered ? 'scale-125 bg-blue-600/40 border-blue-600/60 shadow-lg shadow-blue-600/50' : ''
     }`}
   >
-    <SiMysql className="text-2xl text-blue-400" />
+    <img src="/mysql-icon.png" alt="MySQL" className="w-6 h-6 object-contain" />
   </div>
 );
 
@@ -363,7 +363,7 @@ const GSAPIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHover
       isHovered ? 'scale-125 bg-green-500/40 border-green-500/60 shadow-lg shadow-green-500/50' : ''
     }`}
   >
-    <SiGreensock className="text-2xl text-green-400" />
+    <img src="/gsap-icon.jpg" alt="GSAP" className="w-6 h-6 object-contain" />
   </div>
 );
 
@@ -387,7 +387,7 @@ const HuggingFaceIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; 
       isHovered ? 'scale-125 bg-yellow-500/40 border-yellow-500/60 shadow-lg shadow-yellow-500/50' : ''
     }`}
   >
-    <SiHuggingface className="text-2xl text-yellow-400" />
+    <img src="/huggingface-icon.png" alt="Hugging Face" className="w-6 h-6 object-contain" />
   </div>
 );
 
@@ -471,7 +471,7 @@ const VSCodeIcon = ({ isHovered, onHover, onLeave }: { isHovered: boolean; onHov
       isHovered ? 'scale-125 bg-blue-500/40 border-blue-500/60 shadow-lg shadow-blue-500/50' : ''
     }`}
   >
-    <VscCode className="text-2xl text-blue-400" />
+    <img src="/vscode-icon.png" alt="VS Code" className="w-6 h-6 object-contain" />
   </div>
 );
 
@@ -849,8 +849,49 @@ const technologyDescriptions: Record<string, { name: string; description: string
   },
 };
 
+// Category mapping based on skills-organization.txt
+const categoryMapping = {
+  languages: ['javascript', 'typescript', 'python', 'java', 'cpp', 'c', 'mysql'],
+  frontend: ['html', 'css', 'react', 'nextjs', 'tailwind', 'framer', 'gsap'],
+  backend: ['node', 'express', 'fastapi', 'flask'],
+  aiml: ['huggingface', 'scikit'],
+  dataprocessing: ['pandas', 'numpy', 'matplotlib'],
+  databases: ['mongodb', 'postgresql', 'sql'],
+  clouddevops: ['docker', 'azure', 'vercel', 'git', 'github', 'render', 'railway', 'cicd'],
+  tools: ['vscode', 'autocad', 'canva', 'figma', 'postman']
+};
+
+type CategoryKey = keyof typeof categoryMapping;
+
 export const SkillsPage = () => {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState<CategoryKey | null>(null);
+
+  // Check if an icon is highlighted based on selected category
+  const isIconHighlighted = (iconKey: string) => {
+    if (!selectedCategory) return true; // Show all if no category selected
+    return categoryMapping[selectedCategory].includes(iconKey);
+  };
+
+  // Get icon opacity/scale based on highlight status
+  const getIconWrapperStyle = (iconKey: string) => {
+    if (!selectedCategory) return 'opacity-100'; // Full opacity when no filter
+    const isHighlighted = categoryMapping[selectedCategory].includes(iconKey);
+    return isHighlighted 
+      ? 'opacity-100 ring-2 ring-blue-400/50' 
+      : 'opacity-20';
+  };
+
+  // Get all icons in the selected category for description display
+  const getSelectedCategoryIcons = () => {
+    if (!selectedCategory) return [];
+    return categoryMapping[selectedCategory]
+      .filter(key => technologyDescriptions[key as keyof typeof technologyDescriptions])
+      .map(key => ({
+        key,
+        ...technologyDescriptions[key as keyof typeof technologyDescriptions]
+      }));
+  };
 
   return (
     <div className="min-h-screen pt-28 pb-20 px-4">
@@ -875,62 +916,142 @@ export const SkillsPage = () => {
               {/* Outer orbit - Languages (Clockwise) */}
               {/* Orbit 1 - Outermost (Clockwise) - 12 icons */}
               <OrbitingCircles iconSize={46} radius={320} duration={40} delay={0} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
-                <ReactIcon isHovered={hoveredIcon === 'react'} onHover={() => setHoveredIcon('react')} onLeave={() => setHoveredIcon(null)} />
-                <TypeScriptIcon isHovered={hoveredIcon === 'typescript'} onHover={() => setHoveredIcon('typescript')} onLeave={() => setHoveredIcon(null)} />
-                <JavaScriptIcon isHovered={hoveredIcon === 'javascript'} onHover={() => setHoveredIcon('javascript')} onLeave={() => setHoveredIcon(null)} />
-                <PythonIcon isHovered={hoveredIcon === 'python'} onHover={() => setHoveredIcon('python')} onLeave={() => setHoveredIcon(null)} />
-                <JavaIcon isHovered={hoveredIcon === 'java'} onHover={() => setHoveredIcon('java')} onLeave={() => setHoveredIcon(null)} />
-                <CppIcon isHovered={hoveredIcon === 'cpp'} onHover={() => setHoveredIcon('cpp')} onLeave={() => setHoveredIcon(null)} />
-                <CIcon isHovered={hoveredIcon === 'c'} onHover={() => setHoveredIcon('c')} onLeave={() => setHoveredIcon(null)} />
-                <HTMLIcon isHovered={hoveredIcon === 'html'} onHover={() => setHoveredIcon('html')} onLeave={() => setHoveredIcon(null)} />
-                <CSSIcon isHovered={hoveredIcon === 'css'} onHover={() => setHoveredIcon('css')} onLeave={() => setHoveredIcon(null)} />
-                <NextJSIcon isHovered={hoveredIcon === 'nextjs'} onHover={() => setHoveredIcon('nextjs')} onLeave={() => setHoveredIcon(null)} />
-                <TailwindIcon isHovered={hoveredIcon === 'tailwind'} onHover={() => setHoveredIcon('tailwind')} onLeave={() => setHoveredIcon(null)} />
-                <FramerIcon isHovered={hoveredIcon === 'framer'} onHover={() => setHoveredIcon('framer')} onLeave={() => setHoveredIcon(null)} />
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('react')}`}>
+                  <ReactIcon isHovered={hoveredIcon === 'react'} onHover={() => setHoveredIcon('react')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('typescript')}`}>
+                  <TypeScriptIcon isHovered={hoveredIcon === 'typescript'} onHover={() => setHoveredIcon('typescript')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('javascript')}`}>
+                  <JavaScriptIcon isHovered={hoveredIcon === 'javascript'} onHover={() => setHoveredIcon('javascript')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('python')}`}>
+                  <PythonIcon isHovered={hoveredIcon === 'python'} onHover={() => setHoveredIcon('python')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('java')}`}>
+                  <JavaIcon isHovered={hoveredIcon === 'java'} onHover={() => setHoveredIcon('java')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('cpp')}`}>
+                  <CppIcon isHovered={hoveredIcon === 'cpp'} onHover={() => setHoveredIcon('cpp')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('c')}`}>
+                  <CIcon isHovered={hoveredIcon === 'c'} onHover={() => setHoveredIcon('c')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('html')}`}>
+                  <HTMLIcon isHovered={hoveredIcon === 'html'} onHover={() => setHoveredIcon('html')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('css')}`}>
+                  <CSSIcon isHovered={hoveredIcon === 'css'} onHover={() => setHoveredIcon('css')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('nextjs')}`}>
+                  <NextJSIcon isHovered={hoveredIcon === 'nextjs'} onHover={() => setHoveredIcon('nextjs')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('tailwind')}`}>
+                  <TailwindIcon isHovered={hoveredIcon === 'tailwind'} onHover={() => setHoveredIcon('tailwind')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('framer')}`}>
+                  <FramerIcon isHovered={hoveredIcon === 'framer'} onHover={() => setHoveredIcon('framer')} onLeave={() => setHoveredIcon(null)} />
+                </div>
               </OrbitingCircles>
 
               {/* Orbit 2 (Counter-clockwise) - 10 icons */}
               <OrbitingCircles iconSize={44} radius={256} duration={36} delay={0} reverse={true} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
-                <GSAPIcon isHovered={hoveredIcon === 'gsap'} onHover={() => setHoveredIcon('gsap')} onLeave={() => setHoveredIcon(null)} />
-                <NodeIcon isHovered={hoveredIcon === 'node'} onHover={() => setHoveredIcon('node')} onLeave={() => setHoveredIcon(null)} />
-                <ExpressIcon isHovered={hoveredIcon === 'express'} onHover={() => setHoveredIcon('express')} onLeave={() => setHoveredIcon(null)} />
-                <FlaskIcon isHovered={hoveredIcon === 'flask'} onHover={() => setHoveredIcon('flask')} onLeave={() => setHoveredIcon(null)} />
-                <FastAPIIcon isHovered={hoveredIcon === 'fastapi'} onHover={() => setHoveredIcon('fastapi')} onLeave={() => setHoveredIcon(null)} />
-                <MongoDBIcon isHovered={hoveredIcon === 'mongodb'} onHover={() => setHoveredIcon('mongodb')} onLeave={() => setHoveredIcon(null)} />
-                <PostgreSQLIcon isHovered={hoveredIcon === 'postgresql'} onHover={() => setHoveredIcon('postgresql')} onLeave={() => setHoveredIcon(null)} />
-                <SQLIcon isHovered={hoveredIcon === 'sql'} onHover={() => setHoveredIcon('sql')} onLeave={() => setHoveredIcon(null)} />
-                <MySQLIcon isHovered={hoveredIcon === 'mysql'} onHover={() => setHoveredIcon('mysql')} onLeave={() => setHoveredIcon(null)} />
-                <HuggingFaceIcon isHovered={hoveredIcon === 'huggingface'} onHover={() => setHoveredIcon('huggingface')} onLeave={() => setHoveredIcon(null)} />
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('gsap')}`}>
+                  <GSAPIcon isHovered={hoveredIcon === 'gsap'} onHover={() => setHoveredIcon('gsap')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('node')}`}>
+                  <NodeIcon isHovered={hoveredIcon === 'node'} onHover={() => setHoveredIcon('node')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('express')}`}>
+                  <ExpressIcon isHovered={hoveredIcon === 'express'} onHover={() => setHoveredIcon('express')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('flask')}`}>
+                  <FlaskIcon isHovered={hoveredIcon === 'flask'} onHover={() => setHoveredIcon('flask')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('fastapi')}`}>
+                  <FastAPIIcon isHovered={hoveredIcon === 'fastapi'} onHover={() => setHoveredIcon('fastapi')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('mongodb')}`}>
+                  <MongoDBIcon isHovered={hoveredIcon === 'mongodb'} onHover={() => setHoveredIcon('mongodb')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('postgresql')}`}>
+                  <PostgreSQLIcon isHovered={hoveredIcon === 'postgresql'} onHover={() => setHoveredIcon('postgresql')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('sql')}`}>
+                  <SQLIcon isHovered={hoveredIcon === 'sql'} onHover={() => setHoveredIcon('sql')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('mysql')}`}>
+                  <MySQLIcon isHovered={hoveredIcon === 'mysql'} onHover={() => setHoveredIcon('mysql')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('huggingface')}`}>
+                  <HuggingFaceIcon isHovered={hoveredIcon === 'huggingface'} onHover={() => setHoveredIcon('huggingface')} onLeave={() => setHoveredIcon(null)} />
+                </div>
               </OrbitingCircles>
 
               {/* Orbit 3 (Clockwise) - 8 icons */}
               <OrbitingCircles iconSize={42} radius={192} duration={32} delay={0} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
-                <NumpyIcon isHovered={hoveredIcon === 'numpy'} onHover={() => setHoveredIcon('numpy')} onLeave={() => setHoveredIcon(null)} />
-                <MatplotlibIcon isHovered={hoveredIcon === 'matplotlib'} onHover={() => setHoveredIcon('matplotlib')} onLeave={() => setHoveredIcon(null)} />
-                <PandasIcon isHovered={hoveredIcon === 'pandas'} onHover={() => setHoveredIcon('pandas')} onLeave={() => setHoveredIcon(null)} />
-                <ScikitIcon isHovered={hoveredIcon === 'scikit'} onHover={() => setHoveredIcon('scikit')} onLeave={() => setHoveredIcon(null)} />
-                <GitIcon isHovered={hoveredIcon === 'git'} onHover={() => setHoveredIcon('git')} onLeave={() => setHoveredIcon(null)} />
-                <GithubIcon isHovered={hoveredIcon === 'github'} onHover={() => setHoveredIcon('github')} onLeave={() => setHoveredIcon(null)} />
-                <DockerIcon isHovered={hoveredIcon === 'docker'} onHover={() => setHoveredIcon('docker')} onLeave={() => setHoveredIcon(null)} />
-                <AzureIcon isHovered={hoveredIcon === 'azure'} onHover={() => setHoveredIcon('azure')} onLeave={() => setHoveredIcon(null)} />
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('numpy')}`}>
+                  <NumpyIcon isHovered={hoveredIcon === 'numpy'} onHover={() => setHoveredIcon('numpy')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('matplotlib')}`}>
+                  <MatplotlibIcon isHovered={hoveredIcon === 'matplotlib'} onHover={() => setHoveredIcon('matplotlib')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('pandas')}`}>
+                  <PandasIcon isHovered={hoveredIcon === 'pandas'} onHover={() => setHoveredIcon('pandas')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('scikit')}`}>
+                  <ScikitIcon isHovered={hoveredIcon === 'scikit'} onHover={() => setHoveredIcon('scikit')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('git')}`}>
+                  <GitIcon isHovered={hoveredIcon === 'git'} onHover={() => setHoveredIcon('git')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('github')}`}>
+                  <GithubIcon isHovered={hoveredIcon === 'github'} onHover={() => setHoveredIcon('github')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('docker')}`}>
+                  <DockerIcon isHovered={hoveredIcon === 'docker'} onHover={() => setHoveredIcon('docker')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('azure')}`}>
+                  <AzureIcon isHovered={hoveredIcon === 'azure'} onHover={() => setHoveredIcon('azure')} onLeave={() => setHoveredIcon(null)} />
+                </div>
               </OrbitingCircles>
 
               {/* Orbit 4 (Counter-clockwise) - 6 icons */}
               <OrbitingCircles iconSize={40} radius={128} duration={28} reverse={true} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
-                <VercelIcon isHovered={hoveredIcon === 'vercel'} onHover={() => setHoveredIcon('vercel')} onLeave={() => setHoveredIcon(null)} />
-                <RenderIcon isHovered={hoveredIcon === 'render'} onHover={() => setHoveredIcon('render')} onLeave={() => setHoveredIcon(null)} />
-                <RailwayIcon isHovered={hoveredIcon === 'railway'} onHover={() => setHoveredIcon('railway')} onLeave={() => setHoveredIcon(null)} />
-                <CICDIcon isHovered={hoveredIcon === 'cicd'} onHover={() => setHoveredIcon('cicd')} onLeave={() => setHoveredIcon(null)} />
-                <GroqIcon isHovered={hoveredIcon === 'groq'} onHover={() => setHoveredIcon('groq')} onLeave={() => setHoveredIcon(null)} />
-                <VSCodeIcon isHovered={hoveredIcon === 'vscode'} onHover={() => setHoveredIcon('vscode')} onLeave={() => setHoveredIcon(null)} />
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('vercel')}`}>
+                  <VercelIcon isHovered={hoveredIcon === 'vercel'} onHover={() => setHoveredIcon('vercel')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('render')}`}>
+                  <RenderIcon isHovered={hoveredIcon === 'render'} onHover={() => setHoveredIcon('render')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('railway')}`}>
+                  <RailwayIcon isHovered={hoveredIcon === 'railway'} onHover={() => setHoveredIcon('railway')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('cicd')}`}>
+                  <CICDIcon isHovered={hoveredIcon === 'cicd'} onHover={() => setHoveredIcon('cicd')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('groq')}`}>
+                  <GroqIcon isHovered={hoveredIcon === 'groq'} onHover={() => setHoveredIcon('groq')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('vscode')}`}>
+                  <VSCodeIcon isHovered={hoveredIcon === 'vscode'} onHover={() => setHoveredIcon('vscode')} onLeave={() => setHoveredIcon(null)} />
+                </div>
               </OrbitingCircles>
 
               {/* Orbit 5 - Innermost (Clockwise) - 4 icons */}
               <OrbitingCircles iconSize={38} radius={64} duration={24} orbitColor="#3a3a3a" paused={hoveredIcon !== null}>
-                <AutoCADIcon isHovered={hoveredIcon === 'autocad'} onHover={() => setHoveredIcon('autocad')} onLeave={() => setHoveredIcon(null)} />
-                <CanvaIcon isHovered={hoveredIcon === 'canva'} onHover={() => setHoveredIcon('canva')} onLeave={() => setHoveredIcon(null)} />
-                <FigmaIcon isHovered={hoveredIcon === 'figma'} onHover={() => setHoveredIcon('figma')} onLeave={() => setHoveredIcon(null)} />
-                <PostmanIcon isHovered={hoveredIcon === 'postman'} onHover={() => setHoveredIcon('postman')} onLeave={() => setHoveredIcon(null)} />
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('autocad')}`}>
+                  <AutoCADIcon isHovered={hoveredIcon === 'autocad'} onHover={() => setHoveredIcon('autocad')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('canva')}`}>
+                  <CanvaIcon isHovered={hoveredIcon === 'canva'} onHover={() => setHoveredIcon('canva')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('figma')}`}>
+                  <FigmaIcon isHovered={hoveredIcon === 'figma'} onHover={() => setHoveredIcon('figma')} onLeave={() => setHoveredIcon(null)} />
+                </div>
+                <div className={`w-full h-full rounded-full transition-all duration-300 ${getIconWrapperStyle('postman')}`}>
+                  <PostmanIcon isHovered={hoveredIcon === 'postman'} onHover={() => setHoveredIcon('postman')} onLeave={() => setHoveredIcon(null)} />
+                </div>
               </OrbitingCircles>
             </div>
           </div>
@@ -940,31 +1061,104 @@ export const SkillsPage = () => {
             
             {/* Top: Buttons Section (20% height) */}
             <div className="h-[140px] rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 backdrop-blur-sm p-6">
-              <div className="grid grid-cols-3 gap-3 h-full">
-                <Button variant="default" className="h-full">
-                  Button 1
+              <div className="grid grid-cols-4 gap-3 h-full">
+                <Button 
+                  variant="default" 
+                  className={`h-full ${selectedCategory === 'languages' ? 'ring-2 ring-blue-500 bg-blue-500/20' : ''}`}
+                  onClick={() => setSelectedCategory(selectedCategory === 'languages' ? null : 'languages')}
+                >
+                  Languages
                 </Button>
-                <Button variant="default" className="h-full">
-                  Button 2
+                <Button 
+                  variant="default" 
+                  className={`h-full ${selectedCategory === 'frontend' ? 'ring-2 ring-cyan-500 bg-cyan-500/20' : ''}`}
+                  onClick={() => setSelectedCategory(selectedCategory === 'frontend' ? null : 'frontend')}
+                >
+                  Frontend
                 </Button>
-                <Button variant="default" className="h-full">
-                  Button 3
+                <Button 
+                  variant="default" 
+                  className={`h-full ${selectedCategory === 'backend' ? 'ring-2 ring-green-500 bg-green-500/20' : ''}`}
+                  onClick={() => setSelectedCategory(selectedCategory === 'backend' ? null : 'backend')}
+                >
+                  Backend
                 </Button>
-                <Button variant="default" className="h-full">
-                  Button 4
+                <Button 
+                  variant="default" 
+                  className={`h-full ${selectedCategory === 'aiml' ? 'ring-2 ring-purple-500 bg-purple-500/20' : ''}`}
+                  onClick={() => setSelectedCategory(selectedCategory === 'aiml' ? null : 'aiml')}
+                >
+                  AI/ML
                 </Button>
-                <Button variant="default" className="h-full">
-                  Button 5
+                <Button 
+                  variant="default" 
+                  className={`h-full ${selectedCategory === 'dataprocessing' ? 'ring-2 ring-indigo-500 bg-indigo-500/20' : ''}`}
+                  onClick={() => setSelectedCategory(selectedCategory === 'dataprocessing' ? null : 'dataprocessing')}
+                >
+                  Data Processing
                 </Button>
-                <Button variant="default" className="h-full">
-                  Button 6
+                <Button 
+                  variant="default" 
+                  className={`h-full ${selectedCategory === 'databases' ? 'ring-2 ring-emerald-500 bg-emerald-500/20' : ''}`}
+                  onClick={() => setSelectedCategory(selectedCategory === 'databases' ? null : 'databases')}
+                >
+                  Databases
+                </Button>
+                <Button 
+                  variant="default" 
+                  className={`h-full ${selectedCategory === 'clouddevops' ? 'ring-2 ring-sky-500 bg-sky-500/20' : ''}`}
+                  onClick={() => setSelectedCategory(selectedCategory === 'clouddevops' ? null : 'clouddevops')}
+                >
+                  Cloud & DevOps
+                </Button>
+                <Button 
+                  variant="default" 
+                  className={`h-full ${selectedCategory === 'tools' ? 'ring-2 ring-orange-500 bg-orange-500/20' : ''}`}
+                  onClick={() => setSelectedCategory(selectedCategory === 'tools' ? null : 'tools')}
+                >
+                  Tools
                 </Button>
               </div>
             </div>
 
             {/* Bottom: Description Box */}
-            <div className="flex-1 min-h-[540px] rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 backdrop-blur-sm p-8">
-              {hoveredIcon ? (
+            <div className="flex-1 min-h-[540px] rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 backdrop-blur-sm p-8 overflow-y-auto">
+              {selectedCategory ? (
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-3xl font-bold text-white mb-2">
+                      {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1).replace(/([A-Z])/g, ' $1')}
+                    </h2>
+                    <p className="text-sm text-gray-400">
+                      {getSelectedCategoryIcons().length} technologies
+                    </p>
+                  </div>
+                  
+                  <div className="space-y-6">
+                    {getSelectedCategoryIcons().map((tech) => (
+                      <div key={tech.key} className="border-l-4 border-blue-500/50 pl-4 space-y-2">
+                        <h3 className="text-xl font-semibold text-white">
+                          {tech.name}
+                        </h3>
+                        <p className="text-sm text-gray-400">{tech.category}</p>
+                        <p className="text-gray-300 leading-relaxed">
+                          {tech.description}
+                        </p>
+                        <div className="flex flex-wrap gap-2 pt-2">
+                          {tech.useCases.map((useCase, idx) => (
+                            <span 
+                              key={idx}
+                              className="text-xs text-gray-300 bg-white/5 rounded-lg px-3 py-1 border border-gray-700/50"
+                            >
+                              {useCase}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ) : hoveredIcon ? (
                 <div className="space-y-6">
                   <div>
                     <h2 className="text-3xl font-bold text-white mb-2">
@@ -998,9 +1192,14 @@ export const SkillsPage = () => {
                 </div>
               ) : (
                 <div className="flex items-center justify-center h-full">
-                  <p className="text-gray-500 text-lg">
-                    Hover over any technology icon to see details
-                  </p>
+                  <div className="text-center space-y-4">
+                    <p className="text-gray-500 text-lg">
+                      Select a category above or hover over any technology icon
+                    </p>
+                    <p className="text-gray-600 text-sm">
+                      Click a button to filter technologies by category
+                    </p>
+                  </div>
                 </div>
               )}
             </div>
