@@ -331,6 +331,124 @@ const skillCategories = [
   },
 ];
 
+// Technology descriptions
+const technologyDescriptions: Record<string, { name: string; description: string; category: string; useCases: string[] }> = {
+  react: {
+    name: "React",
+    description: "A JavaScript library for building user interfaces with a component-based architecture.",
+    category: "Frontend Framework",
+    useCases: ["Single Page Applications", "Interactive UIs", "Reusable Components", "State Management"]
+  },
+  typescript: {
+    name: "TypeScript",
+    description: "A strongly typed superset of JavaScript that adds static typing for better code quality.",
+    category: "Programming Language",
+    useCases: ["Type Safety", "Better IDE Support", "Large Scale Applications", "Team Collaboration"]
+  },
+  javascript: {
+    name: "JavaScript",
+    description: "The core programming language of the web, enabling dynamic and interactive content.",
+    category: "Programming Language",
+    useCases: ["Web Development", "Frontend Logic", "API Integration", "DOM Manipulation"]
+  },
+  python: {
+    name: "Python",
+    description: "A versatile high-level language known for readability and extensive library support.",
+    category: "Programming Language",
+    useCases: ["Data Science", "Machine Learning", "Backend Development", "Automation Scripts"]
+  },
+  java: {
+    name: "Java",
+    description: "A robust, object-oriented language used for enterprise applications and Android development.",
+    category: "Programming Language",
+    useCases: ["Enterprise Applications", "Android Development", "Backend Services", "Desktop Applications"]
+  },
+  cpp: {
+    name: "C++",
+    description: "A powerful language offering high performance and low-level memory manipulation.",
+    category: "Programming Language",
+    useCases: ["System Programming", "Game Development", "Performance Critical Apps", "Embedded Systems"]
+  },
+  node: {
+    name: "Node.js",
+    description: "A JavaScript runtime built on Chrome's V8 engine for building scalable network applications.",
+    category: "Backend Runtime",
+    useCases: ["REST APIs", "Real-time Applications", "Microservices", "Server-side JavaScript"]
+  },
+  express: {
+    name: "Express.js",
+    description: "A minimal and flexible Node.js web application framework for building APIs and web apps.",
+    category: "Backend Framework",
+    useCases: ["RESTful APIs", "Web Servers", "Middleware Integration", "Routing"]
+  },
+  fastapi: {
+    name: "FastAPI",
+    description: "A modern, fast Python web framework for building APIs with automatic documentation.",
+    category: "Backend Framework",
+    useCases: ["High Performance APIs", "Async Operations", "Data Validation", "Auto Documentation"]
+  },
+  mongodb: {
+    name: "MongoDB",
+    description: "A NoSQL document database offering flexibility and scalability for modern applications.",
+    category: "Database",
+    useCases: ["Document Storage", "Flexible Schema", "Scalable Applications", "JSON-like Data"]
+  },
+  postgresql: {
+    name: "PostgreSQL",
+    description: "A powerful, open-source relational database with advanced features and SQL compliance.",
+    category: "Database",
+    useCases: ["Complex Queries", "ACID Compliance", "Data Integrity", "Structured Data"]
+  },
+  sql: {
+    name: "SQL",
+    description: "Structured Query Language for managing and manipulating relational databases.",
+    category: "Query Language",
+    useCases: ["Data Querying", "Database Management", "Data Analysis", "Reporting"]
+  },
+  git: {
+    name: "Git",
+    description: "A distributed version control system for tracking code changes and collaboration.",
+    category: "Version Control",
+    useCases: ["Source Control", "Branching & Merging", "Code History", "Team Collaboration"]
+  },
+  docker: {
+    name: "Docker",
+    description: "A platform for containerizing applications to ensure consistency across environments.",
+    category: "DevOps Tool",
+    useCases: ["Containerization", "Microservices", "CI/CD Pipelines", "Environment Consistency"]
+  },
+  azure: {
+    name: "Microsoft Azure",
+    description: "Microsoft's cloud computing platform offering a wide range of services and solutions.",
+    category: "Cloud Platform",
+    useCases: ["Cloud Services", "OCR Processing", "Scalable Infrastructure", "AI Services"]
+  },
+  groq: {
+    name: "Groq API",
+    description: "High-performance AI inference API for fast language model processing.",
+    category: "AI Service",
+    useCases: ["LLM Inference", "Fast AI Processing", "Natural Language", "AI Integration"]
+  },
+  pandas: {
+    name: "Pandas",
+    description: "A powerful Python library for data manipulation and analysis with DataFrames.",
+    category: "Data Library",
+    useCases: ["Data Analysis", "Data Cleaning", "CSV Processing", "Statistical Analysis"]
+  },
+  scikit: {
+    name: "Scikit-learn",
+    description: "A comprehensive machine learning library for Python with simple and efficient tools.",
+    category: "ML Library",
+    useCases: ["Machine Learning", "Classification", "Regression", "Model Training"]
+  },
+  vercel: {
+    name: "Vercel",
+    description: "A cloud platform for deploying and hosting modern web applications with zero configuration.",
+    category: "Deployment Platform",
+    useCases: ["Frontend Hosting", "Serverless Functions", "Edge Network", "CI/CD Integration"]
+  },
+};
+
 export const SkillsPage = () => {
   const [hoveredIcon, setHoveredIcon] = useState<string | null>(null);
 
@@ -416,10 +534,45 @@ export const SkillsPage = () => {
 
             {/* Bottom: Description Box */}
             <div className="flex-1 min-h-[540px] rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 backdrop-blur-sm p-8">
-              <h2 className="text-2xl font-bold text-white mb-4">
-                Description
-              </h2>
-              {/* Empty content area for now */}
+              {hoveredIcon ? (
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-3xl font-bold text-white mb-2">
+                      {technologyDescriptions[hoveredIcon].name}
+                    </h2>
+                    <p className="text-sm text-gray-400">
+                      {technologyDescriptions[hoveredIcon].category}
+                    </p>
+                  </div>
+                  
+                  <p className="text-gray-300 text-lg leading-relaxed">
+                    {technologyDescriptions[hoveredIcon].description}
+                  </p>
+                  
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-3">
+                      Use Cases
+                    </h3>
+                    <div className="grid grid-cols-2 gap-3">
+                      {technologyDescriptions[hoveredIcon].useCases.map((useCase, idx) => (
+                        <div 
+                          key={idx}
+                          className="flex items-center gap-2 text-gray-300 bg-white/5 rounded-lg px-4 py-2 border border-gray-700/50"
+                        >
+                          <span className="text-blue-400">•</span>
+                          <span>{useCase}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex items-center justify-center h-full">
+                  <p className="text-gray-500 text-lg">
+                    Hover over any technology icon to see details
+                  </p>
+                </div>
+              )}
             </div>
 
           </div>
