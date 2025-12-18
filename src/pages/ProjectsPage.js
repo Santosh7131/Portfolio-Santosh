@@ -10,7 +10,8 @@ var projects = [
         technologies: ["React", "Node.js", "MongoDB", "Algorithm Design"],
         category: "Algorithm & System Design",
         image: "🏗️",
-        color: "rgba(59, 130, 246, 0.25)",
+        color: "#3B82F6",
+        rgbaColor: "59, 130, 246",
         features: [
             "Zone-based floor allocation",
             "Real-time queue management",
@@ -27,7 +28,8 @@ var projects = [
         technologies: ["TypeScript", "React", "Algorithms", "Data Structures"],
         category: "Data Analysis & AI",
         image: "📊",
-        color: "rgba(16, 185, 129, 0.25)",
+        color: "#10B981",
+        rgbaColor: "16, 185, 129",
         features: [
             "Hash table optimization",
             "Quicksort ranking system",
@@ -44,7 +46,8 @@ var projects = [
         technologies: ["C", "Algorithms", "DAA", "Problem Solving"],
         category: "Algorithm Practice",
         image: "🧮",
-        color: "rgba(139, 92, 246, 0.25)",
+        color: "#8B5CF6",
+        rgbaColor: "139, 92, 246",
         features: [
             "Classic algorithm implementations",
             "Complexity analysis",
@@ -61,7 +64,8 @@ var projects = [
         technologies: ["React", "TypeScript", "Framer Motion", "Tailwind CSS"],
         category: "Web Development",
         image: "🌐",
-        color: "rgba(245, 158, 11, 0.25)",
+        color: "#F59E0B",
+        rgbaColor: "245, 158, 11",
         features: [
             "Responsive design",
             "Smooth animations",
@@ -73,22 +77,22 @@ var projects = [
     }
 ];
 export var ProjectsPage = function () {
-    return (_jsx("div", { className: "min-h-screen pt-28 pb-20 px-4", children: _jsxs("div", { className: "container mx-auto max-w-7xl", children: [_jsx("h1", { className: "text-4xl md:text-5xl font-bold text-center mb-6", children: _jsx("span", { className: "bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent", children: "Featured Projects" }) }), _jsx("p", { className: "text-lg text-gray-300 text-center mb-12 max-w-2xl mx-auto", children: "A showcase of my technical projects, from algorithm optimization to full-stack applications. Each project represents a unique challenge and learning experience." }), _jsx("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: projects.map(function (project, index) { return (_jsx(SpotlightCard, { spotlightColor: project.color, children: _jsxs(motion.div, { className: "cursor-target group relative bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-600 hover:border-opacity-50 transition-all duration-500", style: {
-                                borderColor: project.color
+    return (_jsx("div", { className: "min-h-screen pt-28 pb-20 px-4", children: _jsxs("div", { className: "container mx-auto max-w-7xl", children: [_jsx("h1", { className: "text-4xl md:text-5xl font-bold text-center mb-6", children: _jsx("span", { className: "bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent", children: "Featured Projects" }) }), _jsx("p", { className: "text-lg text-gray-300 text-center mb-12 max-w-2xl mx-auto", children: "A showcase of my technical projects, from algorithm optimization to full-stack applications. Each project represents a unique challenge and learning experience." }), _jsx("div", { className: "grid grid-cols-1 lg:grid-cols-2 gap-6", children: projects.map(function (project, index) { return (_jsx(SpotlightCard, { spotlightColor: "rgba(".concat(project.rgbaColor, ", 0.25)"), children: _jsxs(motion.div, { className: "cursor-target group relative bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-600 hover:border-opacity-50 transition-all duration-500", style: {
+                                borderColor: "rgba(".concat(project.rgbaColor, ", 0.125)")
                             }, initial: { opacity: 0, y: 50 }, animate: { opacity: 1, y: 0 }, transition: { duration: 0.6, delay: 0.1 + index * 0.1 }, whileHover: {
                                 y: -10,
                                 scale: 1.02,
-                                borderColor: "".concat(project.color, "40")
-                            }, children: [_jsxs("div", { className: "flex items-start justify-between mb-4", children: [_jsxs("div", { className: "flex items-center gap-3", children: [_jsx("div", { className: "w-12 h-12 rounded-xl flex items-center justify-center text-xl", style: { backgroundColor: "".concat(project.color, "20") }, children: _jsx("span", { children: project.image }) }), _jsx("div", { children: _jsx("span", { className: "text-xs font-mono px-2 py-1 rounded-full", style: {
-                                                            backgroundColor: "".concat(project.color, "20"),
+                                borderColor: "rgba(".concat(project.rgbaColor, ", 0.25)")
+                            }, children: [_jsxs("div", { className: "flex items-start justify-between mb-4", children: [_jsxs("div", { className: "flex items-center gap-3", children: [_jsx("div", { className: "w-12 h-12 rounded-xl flex items-center justify-center text-xl", style: { backgroundColor: "rgba(".concat(project.rgbaColor, ", 0.125)") }, children: _jsx("span", { children: project.image }) }), _jsx("div", { children: _jsx("span", { className: "text-xs font-mono px-2 py-1 rounded-full", style: {
+                                                            backgroundColor: "rgba(".concat(project.rgbaColor, ", 0.125)"),
                                                             color: project.color
                                                         }, children: project.category }) })] }), _jsxs("span", { className: "text-xs font-mono px-2 py-1 rounded-full", style: {
-                                                backgroundColor: "".concat(project.color, "10"),
+                                                backgroundColor: "rgba(".concat(project.rgbaColor, ", 0.06)"),
                                                 color: project.color
                                             }, children: ["0", project.id] })] }), _jsx("h3", { className: "text-xl md:text-2xl font-bold mb-3 group-hover:transition-colors duration-300", style: { color: 'white' }, children: project.title }), _jsx("p", { className: "text-gray-300 mb-4 leading-relaxed text-sm", children: project.description }), _jsxs("div", { className: "mb-4", children: [_jsx("h4", { className: "text-white font-semibold mb-2 text-sm", children: "Key Features:" }), _jsx("div", { className: "grid grid-cols-2 gap-1", children: project.features.map(function (feature, featureIndex) { return (_jsxs("div", { className: "flex items-center gap-2 text-gray-400 text-xs", children: [_jsx("div", { className: "w-1 h-1 rounded-full", style: { backgroundColor: project.color } }), feature] }, featureIndex)); }) })] }), _jsx("div", { className: "flex flex-wrap gap-1 mb-6", children: project.technologies.map(function (tech, techIndex) { return (_jsx("span", { className: "px-2 py-1 text-xs rounded-full border", style: {
-                                            backgroundColor: "".concat(project.color, "10"),
+                                            backgroundColor: "rgba(".concat(project.rgbaColor, ", 0.06)"),
                                             color: project.color,
-                                            borderColor: "".concat(project.color, "30")
+                                            borderColor: "rgba(".concat(project.rgbaColor, ", 0.19)")
                                         }, children: tech }, techIndex)); }) }), _jsxs("div", { className: "flex gap-3", children: [_jsxs(RippleButton, { onClick: function () {
                                                 setTimeout(function () {
                                                     window.open(project.github, '_blank');

@@ -10,7 +10,8 @@ const projects = [
     technologies: ["React", "Node.js", "MongoDB", "Algorithm Design"],
     category: "Algorithm & System Design",
     image: "🏗️",
-    color: "rgba(59, 130, 246, 0.25)" as const,
+    color: "#3B82F6",
+    rgbaColor: "59, 130, 246",
     features: [
       "Zone-based floor allocation",
       "Real-time queue management",
@@ -27,7 +28,8 @@ const projects = [
     technologies: ["TypeScript", "React", "Algorithms", "Data Structures"],
     category: "Data Analysis & AI",
     image: "📊",
-    color: "rgba(16, 185, 129, 0.25)" as const,
+    color: "#10B981",
+    rgbaColor: "16, 185, 129",
     features: [
       "Hash table optimization",
       "Quicksort ranking system",
@@ -44,7 +46,8 @@ const projects = [
     technologies: ["C", "Algorithms", "DAA", "Problem Solving"],
     category: "Algorithm Practice",
     image: "🧮",
-    color: "rgba(139, 92, 246, 0.25)" as const,
+    color: "#8B5CF6",
+    rgbaColor: "139, 92, 246",
     features: [
       "Classic algorithm implementations",
       "Complexity analysis",
@@ -61,7 +64,8 @@ const projects = [
     technologies: ["React", "TypeScript", "Framer Motion", "Tailwind CSS"],
     category: "Web Development",
     image: "🌐",
-    color: "rgba(245, 158, 11, 0.25)" as const,
+    color: "#F59E0B",
+    rgbaColor: "245, 158, 11",
     features: [
       "Responsive design",
       "Smooth animations",
@@ -94,20 +98,22 @@ export const ProjectsPage = () => {
           {projects.map((project, index) => (
             <SpotlightCard 
               key={project.id}
-              spotlightColor={project.color}
+              spotlightColor={`rgba(${project.rgbaColor}, 0.25)` as `rgba(${number}, ${number}, ${number}, ${number})`}
             >
               <motion.div
-                className="cursor-target group relative bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-600 hover:border-opacity-50 transition-all duration-500"
+                className="cursor-target group relative bg-black/40 backdrop-blur-sm rounded-2xl p-6 border border-gray-600"
                 style={{ 
-                  borderColor: project.color
+                  borderColor: `rgba(${project.rgbaColor}, 0.125)`
                 }}
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 + index * 0.1 }}
+                transition={{ 
+                  opacity: { duration: 0.6, delay: 0.1 + index * 0.1 },
+                  y: { duration: 0.6, delay: 0.1 + index * 0.1 },
+                  borderColor: { duration: 0.15 }
+                }}
                 whileHover={{ 
-                  y: -10, 
-                  scale: 1.02,
-                  borderColor: `${project.color}40`
+                  borderColor: `rgba(${project.rgbaColor}, 0.25)`
                 }}
               >
               {/* Project Header */}
@@ -115,7 +121,7 @@ export const ProjectsPage = () => {
                 <div className="flex items-center gap-3">
                   <div 
                     className="w-12 h-12 rounded-xl flex items-center justify-center text-xl"
-                    style={{ backgroundColor: `${project.color}20` }}
+                    style={{ backgroundColor: `rgba(${project.rgbaColor}, 0.125)` }}
                   >
                     <span>{project.image}</span>
                   </div>
@@ -123,7 +129,7 @@ export const ProjectsPage = () => {
                     <span 
                       className="text-xs font-mono px-2 py-1 rounded-full"
                       style={{ 
-                        backgroundColor: `${project.color}20`,
+                        backgroundColor: `rgba(${project.rgbaColor}, 0.125)`,
                         color: project.color
                       }}
                     >
@@ -134,7 +140,7 @@ export const ProjectsPage = () => {
                 <span 
                   className="text-xs font-mono px-2 py-1 rounded-full"
                   style={{ 
-                    backgroundColor: `${project.color}10`,
+                    backgroundColor: `rgba(${project.rgbaColor}, 0.06)`,
                     color: project.color
                   }}
                 >
@@ -178,9 +184,9 @@ export const ProjectsPage = () => {
                     key={techIndex} 
                     className="px-2 py-1 text-xs rounded-full border"
                     style={{ 
-                      backgroundColor: `${project.color}10`,
+                      backgroundColor: `rgba(${project.rgbaColor}, 0.06)`,
                       color: project.color,
-                      borderColor: `${project.color}30`
+                      borderColor: `rgba(${project.rgbaColor}, 0.19)`
                     }}
                   >
                     {tech}
@@ -197,6 +203,7 @@ export const ProjectsPage = () => {
                     }, 100);
                   }} 
                   size="lg" 
+                  hoverScale={1}
                   className="cursor-target bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:bg-white/10 font-semibold rounded-xl px-8"
                   style={{
                     '--ripple-button-ripple-color': 'rgba(255, 255, 255, 0.6)',
@@ -213,6 +220,7 @@ export const ProjectsPage = () => {
                     }, 100);
                   }} 
                   size="lg" 
+                  hoverScale={1}
                   className="cursor-target bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:bg-white/10 font-semibold rounded-xl px-8"
                   style={{
                     '--ripple-button-ripple-color': 'rgba(255, 255, 255, 0.6)',
