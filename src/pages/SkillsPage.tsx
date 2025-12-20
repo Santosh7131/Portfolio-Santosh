@@ -1123,42 +1123,8 @@ export const SkillsPage = () => {
 
             {/* Bottom: Description Box */}
             <div className="flex-1 min-h-[540px] rounded-xl bg-gradient-to-br from-gray-900/50 to-gray-800/50 border border-gray-700/50 backdrop-blur-sm p-8 overflow-y-auto">
-              {selectedCategory ? (
-                <div className="space-y-6">
-                  <div>
-                    <h2 className="text-3xl font-bold text-white mb-2">
-                      {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1).replace(/([A-Z])/g, ' $1')}
-                    </h2>
-                    <p className="text-sm text-gray-400">
-                      {getSelectedCategoryIcons().length} technologies
-                    </p>
-                  </div>
-                  
-                  <div className="space-y-6">
-                    {getSelectedCategoryIcons().map((tech) => (
-                      <div key={tech.key} className="border-l-4 border-blue-500/50 pl-4 space-y-2">
-                        <h3 className="text-xl font-semibold text-white">
-                          {tech.name}
-                        </h3>
-                        <p className="text-sm text-gray-400">{tech.category}</p>
-                        <p className="text-gray-300 leading-relaxed">
-                          {tech.description}
-                        </p>
-                        <div className="flex flex-wrap gap-2 pt-2">
-                          {tech.useCases.map((useCase, idx) => (
-                            <span 
-                              key={idx}
-                              className="text-xs text-gray-300 bg-white/5 rounded-lg px-3 py-1 border border-gray-700/50"
-                            >
-                              {useCase}
-                            </span>
-                          ))}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              ) : hoveredIcon ? (
+              {hoveredIcon ? (
+                /* Show detailed view when hovering individual icon */
                 <div className="space-y-6">
                   <div>
                     <h2 className="text-3xl font-bold text-white mb-2">
@@ -1188,6 +1154,34 @@ export const SkillsPage = () => {
                         </div>
                       ))}
                     </div>
+                  </div>
+                </div>
+              ) : selectedCategory ? (
+                /* Show quick overview when category is selected */
+                <div className="space-y-6">
+                  <div>
+                    <h2 className="text-3xl font-bold text-white mb-2">
+                      {selectedCategory.charAt(0).toUpperCase() + selectedCategory.slice(1).replace(/([A-Z])/g, ' $1')}
+                    </h2>
+                    <p className="text-sm text-gray-400">
+                      {getSelectedCategoryIcons().length} technologies
+                    </p>
+                  </div>
+                  
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {getSelectedCategoryIcons().map((tech) => (
+                      <div 
+                        key={tech.key} 
+                        className="group p-4 rounded-lg bg-white/5 border border-gray-700/50 hover:border-blue-500/50 hover:bg-white/10 transition-all duration-300"
+                      >
+                        <h3 className="text-lg font-semibold text-white mb-2 group-hover:text-blue-400 transition-colors">
+                          {tech.name}
+                        </h3>
+                        <p className="text-sm text-gray-300 line-clamp-2">
+                          {tech.description}
+                        </p>
+                      </div>
+                    ))}
                   </div>
                 </div>
               ) : (

@@ -10,6 +10,7 @@ import {
   MobileNavMenu,
 } from "@/components/ui/resizable-navbar";
 import { useState } from "react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 type PageType = 'home' | 'about' | 'skills' | 'projects';
 
@@ -57,13 +58,13 @@ export const PortfolioNavbar: React.FC<PortfolioNavbarProps> = ({
         <div className="flex items-center gap-4">
           <NavbarButton 
           >
-            GitHub
+            <FaGithub className="text-xl" />
           </NavbarButton>
           <NavbarButton 
             variant="primary"
             onClick={() => window.open('https://linkedin.com/in/your-profile', '_blank')}
           >
-            LinkedIn
+            <FaLinkedin className="text-xl" />
           </NavbarButton>
         </div>
       </NavBody>
@@ -104,7 +105,7 @@ export const PortfolioNavbar: React.FC<PortfolioNavbarProps> = ({
               variant="secondary"
               className="w-full"
             >
-              GitHub
+              <FaGithub className="text-xl" />
             </NavbarButton>
             <NavbarButton
               onClick={() => {
@@ -114,7 +115,7 @@ export const PortfolioNavbar: React.FC<PortfolioNavbarProps> = ({
               variant="primary"
               className="w-full"
             >
-              LinkedIn
+              <FaLinkedin className="text-xl" />
             </NavbarButton>
           </div>
         </MobileNavMenu>
