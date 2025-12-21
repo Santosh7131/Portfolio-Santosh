@@ -896,7 +896,7 @@ export const SkillsPage = () => {
   return (
     <div className="min-h-screen pt-28 pb-20 px-4">
       <div className="container mx-auto max-w-[95vw]">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-12">
           <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             Skills & Technologies
           </span>

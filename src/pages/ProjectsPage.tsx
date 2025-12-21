@@ -5,60 +5,24 @@ import SpotlightCard from '@/components/SpotlightCard';
 const projects = [
   {
     id: 1,
-    title: "SRM Lift Optimization",
-    description: "Zone-based greedy algorithm optimizing lift allocation for three lifts based on destination floors and capacities. Ensures efficient queue management and constant travel time through intelligent floor grouping and load balancing.",
-    technologies: ["React", "Node.js", "MongoDB", "Algorithm Design"],
-    category: "Algorithm & System Design",
-    image: "🏗️",
+    title: "XtractIQ",
+    description: "AI-powered intelligent document processing system that automatically extracts, structures, and verifies data from scanned documents. Uses Azure OCR and Groq LLM for accurate field extraction with a verification workflow.",
+    technologies: ["React", "Node.js", "Express", "PostgreSQL", "Azure AI", "Groq"],
+    category: "AI & Full-Stack",
+    image: "🤖",
     color: "#3B82F6",
     rgbaColor: "59, 130, 246",
     features: [
-      "Zone-based floor allocation",
-      "Real-time queue management",
-      "Energy-efficient routing",
-      "Load balancing algorithms"
+      "AI-powered OCR extraction",
+      "Intelligent field classification",
+      "Verification workflow",
+      "Cloud-deployed solution"
     ],
-    github: "#",
-    demo: "#"
+    github: "https://github.com/Santosh7131/Xtract-IQ-Forms-",
+    demo: "https://xtract-iq-frontend.onrender.com"
   },
   {
     id: 2,
-    title: "Sentiment Analysis Tool",
-    description: "Advanced sentiment analysis implementation using DAA concepts including hash tables for fast word counting, quicksort for ranking, and weighted scoring algorithms for accurate sentiment calculation.",
-    technologies: ["TypeScript", "React", "Algorithms", "Data Structures"],
-    category: "Data Analysis & AI",
-    image: "📊",
-    color: "#10B981",
-    rgbaColor: "16, 185, 129",
-    features: [
-      "Hash table optimization",
-      "Quicksort ranking system",
-      "Weighted sentiment scoring",
-      "Real-time text processing"
-    ],
-    github: "#",
-    demo: "#"
-  },
-  {
-    id: 3,
-    title: "Random DSA Problems",
-    description: "Comprehensive collection of Design and Analysis of Algorithms (DAA) solutions featuring classic and challenging algorithmic problems to strengthen problem-solving skills and algorithmic thinking.",
-    technologies: ["C", "Algorithms", "DAA", "Problem Solving"],
-    category: "Algorithm Practice",
-    image: "🧮",
-    color: "#8B5CF6",
-    rgbaColor: "139, 92, 246",
-    features: [
-      "Classic algorithm implementations",
-      "Complexity analysis",
-      "Optimization techniques",
-      "Problem-solving patterns"
-    ],
-    github: "https://github.com/Santosh7131/DAA-C",
-    demo: "#"
-  },
-  {
-    id: 4,
     title: "Portfolio Website",
     description: "Modern, responsive portfolio website built with React and Framer Motion. Features smooth animations, glassmorphism design, and optimized performance for showcasing projects and skills.",
     technologies: ["React", "TypeScript", "Framer Motion", "Tailwind CSS"],
@@ -74,6 +38,42 @@ const projects = [
     ],
     github: "#",
     demo: "#"
+  },
+  {
+    id: 3,
+    title: "Sentiment Analysis Tool",
+    description: "A modern, interactive sentiment analysis web application built with React, TypeScript, and TailwindCSS. Analyze the emotional tone of text, files, or web pages with detailed results, visualizations, and history tracking.",
+    technologies: ["React", "TypeScript", "TailwindCSS", "Vite", "Lucide React"],
+    category: "NLP & Web App",
+    image: "📊",
+    color: "#10B981",
+    rgbaColor: "16, 185, 129",
+    features: [
+      "Text, file, and URL input",
+      "Sentiment scores & confidence",
+      "Interactive charts & keyword clouds",
+      "Analysis history & theme switching"
+    ],
+    github: "https://github.com/Santosh7131/Sentiment-Analysis",
+    demo: "https://sentiment-analysis-ten-iota.vercel.app"
+  },
+  {
+    id: 4,
+    title: "TalkSense",
+    description: "Lightweight AI-powered content moderation demo combining a React frontend with a Python ML service. Uses HuggingFace transformer (cardiffnlp/twitter-roberta-base-offensive) and Groq LLM to detect offensive content with contextual analysis.",
+    technologies: ["React", "TypeScript", "Python", "Flask", "HuggingFace", "Groq", "Tailwind CSS"],
+    category: "AI & ML",
+    image: "🛡️",
+    color: "#8B5CF6",
+    rgbaColor: "139, 92, 246",
+    features: [
+      "Real-time offensive content detection",
+      "Context-aware analysis with Groq LLM",
+      "Flask API with transformer models",
+      "React + TypeScript frontend"
+    ],
+    github: "https://github.com/Santosh7131/TalkSense",
+    demo: ""
   }
 ];
 
@@ -213,22 +213,24 @@ export const ProjectsPage = () => {
                   <RippleButtonRipples />
                 </RippleButton>
                 
-                <RippleButton 
-                  onClick={() => {
-                    setTimeout(() => {
-                      window.open(project.demo, '_blank');
-                    }, 100);
-                  }} 
-                  size="lg" 
-                  hoverScale={1}
-                  className="cursor-target bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:bg-white/10 font-semibold rounded-xl px-8"
-                  style={{
-                    '--ripple-button-ripple-color': 'rgba(255, 255, 255, 0.6)',
-                  } as React.CSSProperties}
-                >
-                  🚀 Live Demo
-                  <RippleButtonRipples />
-                </RippleButton>
+                {project.demo && (
+                  <RippleButton 
+                    onClick={() => {
+                      setTimeout(() => {
+                        window.open(project.demo, '_blank');
+                      }, 100);
+                    }} 
+                    size="lg" 
+                    hoverScale={1}
+                    className="cursor-target bg-white/5 backdrop-blur-sm border border-white/10 text-white hover:bg-white/10 font-semibold rounded-xl px-8"
+                    style={{
+                      '--ripple-button-ripple-color': 'rgba(255, 255, 255, 0.6)',
+                    } as React.CSSProperties}
+                  >
+                    🚀 Live Demo
+                    <RippleButtonRipples />
+                  </RippleButton>
+                )}
               </div>
 
               {/* Hover Glow Effect */}
