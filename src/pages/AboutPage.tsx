@@ -5,15 +5,11 @@ export const AboutPage = () => {
   return (
     <div className="min-h-screen pt-28 pb-20 px-4">
       <div className="container mx-auto max-w-4xl">
-        <h1 className="text-4xl md:text-5xl font-bold text-center mb-4">
+        <h1 className="text-4xl md:text-5xl font-bold text-center mb-12">
           <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
             About Me
           </span>
         </h1>
-        
-        <p className="text-gray-400 text-center mb-12 text-lg">
-          Crafting elegant solutions with clean code and thoughtful design
-        </p>
         
         <motion.div 
           className="space-y-8"

@@ -901,10 +901,6 @@ export const SkillsPage = () => {
             Skills & Technologies
           </span>
         </h1>
-        
-        <p className="text-gray-400 text-center mb-8 max-w-2xl mx-auto">
-          Technologies and tools I work with
-        </p>
 
         {/* Main Layout */}
         <div className="flex flex-col lg:flex-row gap-6">
